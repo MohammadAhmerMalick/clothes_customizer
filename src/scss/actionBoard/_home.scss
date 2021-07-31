@@ -1,0 +1,40 @@
+.action-board-home {
+  text-align: center;
+  color: $textPrimaryColor;
+  h3 {
+    text-align: center;
+    color: #333;
+    padding-top: 48px;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 292px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    text-transform: capitalize;
+    a {
+      margin: 5px auto;
+      padding: 10px 15px;
+      svg {
+        width: 74px;
+      }
+      p {
+        color: $textPrimaryColor;
+        margin: 0;
+        margin-top: -1px;
+        font-size: 13.3px;
+      }
+      &:hover {
+        p {
+          color: $linkColor;
+        }
+        svg {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

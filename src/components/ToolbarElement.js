@@ -10,7 +10,7 @@ export default function ToolbarElement({ name, text }) {
   return (
     <div
       onClick={() => dispatch(toolbarAcitveElement(name))}
-      className={`toolbar-element ${activeElement == name
+      className={`toolbar-element ${activeElement === name
         ? "active"
         : ""}`}>
       <Svgs id={name} />

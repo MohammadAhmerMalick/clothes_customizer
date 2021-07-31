@@ -13,11 +13,12 @@
   .text {
     padding: 0;
     margin: 0;
-    font-size: 12px;
-    margin-top: -8px;
+    font-size: 11.3px;
+    margin-top: -9px;
     text-transform: capitalize;
   }
   &:hover {
+    color: $brightColor;
     svg {
       fill: $brightColor;
     }

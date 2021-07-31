@@ -1,3 +1,4 @@
+import ActionBoard from "./ActionBoard";
 import ToolBar from "./ToolBar";
 
 export default function SidePanel() {
@@ -5,6 +6,7 @@ export default function SidePanel() {
     <div className="side-panel">
       <div className="side-panel-body">
         <ToolBar />
+        <ActionBoard />
       </div>
     </div>
   )

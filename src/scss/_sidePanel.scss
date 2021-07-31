@@ -7,5 +7,6 @@
     grid-template-columns: 64px auto;
     background-color: $brightColor;
     @import "./toolbar";
+    @import "./actionBoard";
   }
 }
