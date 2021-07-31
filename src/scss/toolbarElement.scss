@@ -1,0 +1,33 @@
+.toolbar-element {
+  text-align: center;
+  color: $toolbarItemInactiveColor;
+  background: $toolbarColor;
+  padding: 5px 4px;
+  cursor: pointer;
+  svg {
+    fill: $toolbarItemInactiveColor;
+    width: 48px;
+    height: 48px;
+    margin-top: -5px;
+  }
+  .text {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    margin-top: -8px;
+    text-transform: capitalize;
+  }
+  &:hover {
+    svg {
+      fill: $brightColor;
+    }
+  }
+  &.active {
+    background: $brightColor;
+    color: $toolbarItemActiveColor;
+    border-left: 3px solid red;
+    svg {
+      fill: $toolbarItemActiveColor;
+    }
+  }
+}

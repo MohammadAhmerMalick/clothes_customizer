@@ -1,0 +1,5 @@
+.toolbar {
+  background-color: $toolbarColor;
+  padding-top: 32px;
+  @import "./toolbarElement.scss";
+}

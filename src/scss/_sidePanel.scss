@@ -1,0 +1,11 @@
+.side-panel {
+  padding: 22px;
+  .side-panel-body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 64px auto;
+    background-color: $brightColor;
+    @import "./toolbar";
+  }
+}

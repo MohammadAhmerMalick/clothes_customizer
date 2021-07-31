@@ -1,0 +1,9 @@
+.editor {
+  height: 100vh;
+  width: 100vw;
+  background-color: $editorBgColor;
+
+  display: grid;
+  grid-template-columns: 528px auto;
+  @import "./sidePanel";
+}
