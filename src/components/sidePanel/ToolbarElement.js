@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import Svgs from '../icons/Svgs'
-import { toolbarAcitveElement } from '../redux'
+import Svgs from '../../icons/Svgs'
+import { toolbarAcitveElement } from '../../redux'
 
 export default function ToolbarElement({ name, text }) {
 
