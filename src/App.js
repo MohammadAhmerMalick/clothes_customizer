@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import Editor from './components/Editor'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
