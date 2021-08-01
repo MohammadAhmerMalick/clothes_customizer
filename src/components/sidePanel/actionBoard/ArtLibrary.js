@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import ArtItemContainer from './ArtItemContainer'
+import { getArtLibrary } from '../../../redux'
 
-export default function artLibrary() {
-  const libraryImtes = [
-    { link: '/images/item-1.png' },
-    { link: '/images/item-2.png' },
-    { link: '/images/item-3.png' },
-  ]
+export default function ArtLibrary() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getArtLibrary(
+      {
+        type: 'storedLibrary',
+        url: 'http://localhost:8000/storedLibrary'
+      }
+    ))
+  }, [dispatch])
+
   return (
-    <div>
-      <ArtItemContainer items={libraryImtes} />
-    </div>
+    <ArtItemContainer />
   )
 }

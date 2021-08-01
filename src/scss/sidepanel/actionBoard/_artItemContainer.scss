@@ -10,8 +10,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    // padding: 5px;
-      margin: 5px;
+    max-height: 150px;
+    margin: 5px;
       &:hover {
       outline: 1px solid #1f51cf;
       box-shadow: 0 0 5px 1px rgba($color: #1f51cf, $alpha: 0.5);
