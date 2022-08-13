@@ -1,9 +1,0 @@
-.action-board {
-  height: calc(100vh - 44px);
-
-  @import "./actionBoard/home";
-  @import "./actionBoard/actionBoardTitlebar";
-  @import "./actionBoard/searchArtInput";
-  @import "./actionBoard/addArtOption";
-  @import "./actionBoard/artItemContainer";
-}

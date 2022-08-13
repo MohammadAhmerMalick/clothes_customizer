@@ -35,9 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# old project
-/src
-/test_server
-
 # editor
 /.vscode
