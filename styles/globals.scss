@@ -14,17 +14,10 @@ a {
   padding: 0;
   margin: 0;
 
+  transition: 0.2s;
+
   // for development
   // outline: 1px solid red;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    // color-scheme: dark;
-  }
-
-  body {
-    // color: white;
-    // background: black;
-  }
-}
+@import './theme.scss';

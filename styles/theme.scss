@@ -1,0 +1,13 @@
+@import './colors.scss';
+
+.dark {
+  --PrimaryBG: #{$darkPrimaryBG};
+  --SecondaryBG: #{$darkSecondaryBG};
+  --TC: #{$darkTC};
+}
+
+.light {
+  --PrimaryBG: #{$brightPrimaryBG};
+  --SecondaryBG: #{$brightSecondaryBG};
+  --TC: #{$brightTC};
+}

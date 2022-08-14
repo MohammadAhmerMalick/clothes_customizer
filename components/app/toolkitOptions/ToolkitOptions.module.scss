@@ -1,4 +1,3 @@
-@import '/styles/colors.scss';
 @import '/styles/buttons.scss';
 
 .toolkitOptions {
@@ -11,7 +10,7 @@
 
   padding: 12px 0;
 
-  border-right: 1px solid $brightSecondaryBG;
+  border-right: 1px solid var(--SecondaryBG);
 
   .top,
   .bottom {
@@ -31,11 +30,11 @@
         width: $size;
         height: $size;
 
-        color: $brightTC;
+        color: var(--TC);
       }
 
       &:hover {
-        background-color: $brightSecondaryBG;
+        background-color: var(--SecondaryBG);
       }
     }
   }
