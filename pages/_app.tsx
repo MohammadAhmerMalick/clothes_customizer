@@ -2,9 +2,9 @@ import { Provider } from 'react-redux'
 import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import { store } from '../store'
-import AppLayout from '../components/layout/AppLayout'
+import AppLayout from '../components/layout/appLayout/AppLayout'
 import WebsiteLayout from '../components/layout/WebsiteLayout'
 
 function MyApp({ Component, pageProps }: AppProps) {

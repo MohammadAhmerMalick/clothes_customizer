@@ -1,0 +1,42 @@
+@import '/styles/colors.scss';
+@import '/styles/buttons.scss';
+
+.toolkitOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 64px;
+  height: 100%;
+
+  padding: 12px 0;
+
+  border-right: 1px solid $brightSecondaryBG;
+
+  .top,
+  .bottom {
+    display: flex;
+    flex-direction: column;
+
+    .iconContainer {
+      margin: auto;
+      padding: 12px;
+      border-radius: 10px;
+
+      @extend %linkButton;
+
+      .icon {
+        $size: 20px;
+
+        width: $size;
+        height: $size;
+
+        color: $brightTC;
+      }
+
+      &:hover {
+        background-color: $brightSecondaryBG;
+      }
+    }
+  }
+}
