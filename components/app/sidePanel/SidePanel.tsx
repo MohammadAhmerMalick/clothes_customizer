@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import S from './Side_Panel.module.scss'
+import S from './SidePanel.module.scss'
 import ToolkitOptions from '../toolkitOptions/ToolkitOptions'
 import ToolkitPanel from '../toolkitPanel/ToolkitPanel'
 

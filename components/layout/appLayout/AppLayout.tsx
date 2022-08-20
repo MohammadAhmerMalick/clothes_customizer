@@ -2,7 +2,7 @@ import { FC } from 'react'
 import classNames from 'classnames'
 
 import S from './AppLayout.module.scss'
-import SidePanel from '../../app/sidePanel/Side_Panel'
+import SidePanel from '../../app/sidePanel/SidePanel'
 import { LayoutProps } from '../../../ts/interface'
 import { useAppSelector } from '../../../store'
 
