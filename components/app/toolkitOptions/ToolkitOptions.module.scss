@@ -5,10 +5,8 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 64px;
-  height: 100%;
-
   padding: 12px 0;
+  padding-top: 40px;
 
   border-right: 1px solid var(--SecondaryBG);
 
@@ -20,6 +18,7 @@
     .iconContainer {
       margin: auto;
       padding: 12px;
+
       border-radius: 10px;
 
       @extend %linkButton;
@@ -32,8 +31,7 @@
 
         color: var(--TC);
       }
-
-      &:hover {
+      &.active {
         background-color: var(--SecondaryBG);
       }
     }

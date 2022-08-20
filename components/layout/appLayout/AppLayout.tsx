@@ -2,7 +2,7 @@ import { FC } from 'react'
 import classNames from 'classnames'
 
 import S from './AppLayout.module.scss'
-import Sidepanel from '../../app/sIdepanel/Sidepanel'
+import SidePanel from '../../app/sidePanel/Side_Panel'
 import { LayoutProps } from '../../../ts/interface'
 import { useAppSelector } from '../../../store'
 
@@ -11,7 +11,7 @@ const AppLayout: FC<LayoutProps> = ({ children }) => {
 
   return (
     <main className={classNames(themeMode, S.appLayout)}>
-      <Sidepanel />
+      <SidePanel />
       {children}
     </main>
   )

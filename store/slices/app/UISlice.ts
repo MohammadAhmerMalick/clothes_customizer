@@ -1,17 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { UIInterface } from '../../../ts/interface'
+import { UISliceInterface } from '../../../ts/interface'
 import { ThemeModes } from '../../../ts/enum'
 
-const initialState: UIInterface = {
+const initialState: UISliceInterface = {
   theme: ThemeModes.LIGHT,
 }
 
-export const UISlice = createSlice({
+const UISlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    changeTheme: (state, action: PayloadAction<UIInterface['theme']>) => ({
+    changeTheme: (
+      state: UISliceInterface,
+      action: PayloadAction<UISliceInterface['theme']>
+    ) => ({
       ...state,
       theme: action.payload,
     }),
@@ -20,4 +23,4 @@ export const UISlice = createSlice({
 
 export const { changeTheme } = UISlice.actions
 
-export default UISlice.reducer
+export const UIReducer = UISlice.reducer

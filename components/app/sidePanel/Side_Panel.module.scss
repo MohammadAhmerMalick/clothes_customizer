@@ -1,0 +1,6 @@
+.sidePanel {
+  display: grid;
+  grid-template-columns: 64px auto;
+
+  background-color: var(--PrimaryBG);
+}

@@ -10,7 +10,7 @@ import WebsiteLayout from '../components/layout/WebsiteLayout'
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
-  if (router.asPath === '/app') {
+  if (router.asPath.slice(0, 4) === '/app') {
     return (
       <Provider store={store}>
         <AppLayout>

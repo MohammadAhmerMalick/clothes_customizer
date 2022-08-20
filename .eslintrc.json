@@ -24,6 +24,7 @@
     "arrow-body-style": "off",
     "import/extensions": "off",
     "react/react-in-jsx-scope": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": "off",
     "react/function-component-definition": "off",

@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-import UIReducer from './slices/app/UISlice'
+import { UIReducer } from './slices/app/UISlice'
+import { sidePanelReducer } from './slices/app/sidePanelSlice'
 
 export const store = configureStore({
-  reducer: { UIReducer },
+  reducer: { UIReducer, sidePanelReducer },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
