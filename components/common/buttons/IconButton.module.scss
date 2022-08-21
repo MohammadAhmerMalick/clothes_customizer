@@ -1,9 +1,5 @@
-%button {
+.iconContainer {
   cursor: pointer;
-}
-
-%linkButton {
-  @extend %button;
 
   border: 0;
   outline: 0;

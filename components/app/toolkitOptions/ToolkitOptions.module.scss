@@ -1,4 +1,4 @@
-@import '/styles/buttons.scss';
+@import '/styles/variables.scss';
 
 .toolkitOptions {
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: space-between;
 
   padding: 12px 0;
-  padding-top: 40px;
+  padding-top: 60px;
 
   border-right: 1px solid var(--SecondaryBG);
 
@@ -15,22 +15,18 @@
     display: flex;
     flex-direction: column;
 
-    .iconContainer {
+    .button {
       margin: auto;
       padding: 12px;
 
-      border-radius: 10px;
-
-      @extend %linkButton;
+      border-radius: $borderRadiusNormal;
 
       .icon {
-        $size: 20px;
+        display: flex;
 
-        width: $size;
-        height: $size;
-
-        color: var(--TC);
+        font-size: 26px;
       }
+
       &.active {
         background-color: var(--SecondaryBG);
       }

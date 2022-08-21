@@ -1,0 +1,43 @@
+@import '/styles/variables.scss';
+
+.addImage {
+  padding: $toolkitPanelPadding;
+
+  .alignmentContainer {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 15px;
+
+    .button {
+      padding: 5px;
+
+      border-radius: $borderRadiusNormal;
+
+      .icon {
+        display: flex;
+
+        font-size: 20px;
+      }
+
+      &.active {
+        background-color: var(--SecondaryBG);
+      }
+    }
+  }
+
+  .imageContainer {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr;
+
+    padding: 15px 0;
+
+    &.single {
+      grid-template-columns: 1fr;
+    }
+    &.double {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

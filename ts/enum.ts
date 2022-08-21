@@ -3,7 +3,7 @@ export enum ThemeModes {
   DARK = 'dark',
 }
 
-export enum ToolkitOptionButtonTitle {
+export enum ToolkitOptionsList {
   ADD_TEXT = 'Add Text',
   ADD_IMAGE = 'Add Image',
   UPLOAD_IMAGE = 'Upload Image',

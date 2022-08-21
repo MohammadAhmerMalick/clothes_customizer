@@ -1,10 +1,14 @@
 import { FC } from 'react'
 
 import { useAppSelector } from '../../../store'
+import { ToolkitOptionsList } from '../../../ts/enum'
+import AddImage from '../addImage/AddImage'
 
 import S from './ToolkitPanel.module.scss'
 
 const ToolkitPanel: FC = () => {
+  const { selected } = useAppSelector((state) => state.sidePanelReducer)
+
   const { toolkitPanelTitle } = useAppSelector(
     (state) => state.sidePanelReducer
   )
@@ -12,6 +16,8 @@ const ToolkitPanel: FC = () => {
   return (
     <div className={S.toolkitPanel}>
       <p className={S.title}>{toolkitPanelTitle}</p>
+
+      {selected === ToolkitOptionsList.ADD_IMAGE && <AddImage />}
     </div>
   )
 }

@@ -8,10 +8,11 @@ import { MdOutlineDarkMode } from 'react-icons/md'
 
 import S from './ToolkitOptions.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../store'
-import { ThemeModes, ToolkitOptionButtonTitle } from '../../../ts/enum'
+import { ThemeModes, ToolkitOptionsList } from '../../../ts/enum'
 import { changeTheme } from '../../../store/slices/app/UISlice'
 import { ToolkitOptionButtonInterface } from '../../../ts/interface'
 import { updateSidePanelState } from '../../../store/slices/app/sidePanelSlice'
+import IconButton from '../../common/buttons/IconButton'
 
 const ToolkitOptions: FC = () => {
   const { theme } = useAppSelector((state) => state.UIReducer)
@@ -28,17 +29,17 @@ const ToolkitOptions: FC = () => {
   }
 
   const toolkitOptionButtons: ToolkitOptionButtonInterface[] = [
-    { title: ToolkitOptionButtonTitle.ADD_TEXT, Icon: BsTextareaT },
+    { title: ToolkitOptionsList.ADD_TEXT, Icon: BsTextareaT },
     {
-      title: ToolkitOptionButtonTitle.ADD_IMAGE,
+      title: ToolkitOptionsList.ADD_IMAGE,
       Icon: AiOutlinePicture,
     },
     {
-      title: ToolkitOptionButtonTitle.UPLOAD_IMAGE,
+      title: ToolkitOptionsList.UPLOAD_IMAGE,
       Icon: AiOutlineCloudUpload,
     },
     {
-      title: ToolkitOptionButtonTitle.COLOR,
+      title: ToolkitOptionsList.COLOR,
       Icon: IoColorPaletteOutline,
     },
   ]
@@ -48,42 +49,40 @@ const ToolkitOptions: FC = () => {
       {/* top icons */}
       <div className={S.top}>
         {toolkitOptionButtons.map(({ title, Icon }) => (
-          <button
+          <IconButton
             key={title}
-            type="button"
             title={title}
-            className={classNames(S.iconContainer, {
+            className={classNames(S.button, {
               [S.active]: selected === title,
             })}
-            onClick={() => handleCLick(title)}
+            onClick={handleCLick}
           >
             <Icon className={S.icon} />
-          </button>
+          </IconButton>
         ))}
       </div>
 
       {/* button icons */}
       <div className={S.bottom}>
         {theme === ThemeModes.LIGHT ? (
-          <button
-            type="button"
-            className={S.iconContainer}
+          <IconButton
+            className={S.button}
             onClick={() => dispatch(changeTheme(ThemeModes.DARK))}
           >
             <MdOutlineDarkMode className={S.icon} />
-          </button>
+          </IconButton>
         ) : (
-          <button
-            type="button"
-            className={S.iconContainer}
+          <IconButton
+            className={S.button}
             onClick={() => dispatch(changeTheme(ThemeModes.LIGHT))}
           >
             <FiSun className={S.icon} />
-          </button>
+          </IconButton>
         )}
-        <button type="button" className={S.iconContainer}>
+
+        <IconButton className={S.button}>
           <FiSettings className={S.icon} />
-        </button>
+        </IconButton>
       </div>
     </div>
   )
