@@ -1,23 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { UISliceInterface } from '../../../ts/interface'
-import { ThemeModes } from '../../../ts/enum'
+import { ThemeColors } from '../../../ts/enum'
 
 const initialState: UISliceInterface = {
-  theme: ThemeModes.LIGHT,
+  themeColor: ThemeColors.DARK,
 }
 
-const UISlice = createSlice({
-  name: 'ui',
+export const UISlice = createSlice({
+  name: 'UI',
   initialState,
   reducers: {
     changeTheme: (
       state: UISliceInterface,
-      action: PayloadAction<UISliceInterface['theme']>
-    ) => ({
-      ...state,
-      theme: action.payload,
-    }),
+      action: PayloadAction<UISliceInterface['themeColor']>
+    ) => {
+      localStorage.setItem('themeColor', action.payload)
+      return {
+        ...state,
+        themeColor: action.payload,
+      }
+    },
   },
 })
 

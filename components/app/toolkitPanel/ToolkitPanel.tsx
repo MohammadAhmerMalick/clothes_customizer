@@ -9,13 +9,9 @@ import S from './ToolkitPanel.module.scss'
 const ToolkitPanel: FC = () => {
   const { selected } = useAppSelector((state) => state.sidePanelReducer)
 
-  const { toolkitPanelTitle } = useAppSelector(
-    (state) => state.sidePanelReducer
-  )
-
   return (
     <div className={S.toolkitPanel}>
-      <p className={S.title}>{toolkitPanelTitle}</p>
+      <p className={S.title}>{selected}</p>
 
       {selected === ToolkitOptionsList.ADD_IMAGE && <AddImage />}
     </div>

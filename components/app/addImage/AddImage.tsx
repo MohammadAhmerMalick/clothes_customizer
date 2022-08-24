@@ -25,8 +25,6 @@ const AddImage: FC = () => {
     if (e.key === 'Enter') console.log({ e: e.key })
   }
 
-  console.log({ keyword })
-
   return (
     <div className={S.addImage}>
       <Input
@@ -60,7 +58,7 @@ const AddImage: FC = () => {
 
       <div className={classNames(S.imageContainer, S[itemPerColumn])}>
         {[1, 2, 3, 4].map((value) => (
-          <Image key={value} src={CAT} alt="cat" />
+          <Image className={S.image} key={value} src={CAT} alt="cat" />
         ))}
       </div>
     </div>

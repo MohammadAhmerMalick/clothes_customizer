@@ -1,31 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { ToolkitOptionsList } from '../../../ts/enum'
+
 import { sidePanelSliceInterface } from '../../../ts/interface'
 
 const initialState: sidePanelSliceInterface = {
-  selected: '',
-  toolkitPanelTitle: '',
+  selected: ToolkitOptionsList.ADD_TEXT,
 }
 
-const sidePanelSlice = createSlice({
-  name: 'sitepanel',
+export const sidePanelSlice = createSlice({
+  name: 'sitePanel',
   initialState,
   reducers: {
-    updateSidePanelState: (
+    setSelected: (
       state: sidePanelSliceInterface,
-      action: PayloadAction<sidePanelSliceInterface>
-    ) => ({
-      selected: action.payload.selected,
-      toolkitPanelTitle: action.payload.toolkitPanelTitle,
-    }),
-
-    setToolkitPanelTitle: (
-      state: sidePanelSliceInterface,
-      action: PayloadAction<sidePanelSliceInterface['toolkitPanelTitle']>
-    ) => ({ ...state, toolkitPanelTitle: action.payload }),
+      action: PayloadAction<sidePanelSliceInterface['selected']>
+    ) => {
+      localStorage.setItem('selected', action.payload)
+      return { ...state, selected: action.payload }
+    },
   },
 })
 
-export const { updateSidePanelState, setToolkitPanelTitle } =
-  sidePanelSlice.actions
+export const { setSelected } = sidePanelSlice.actions
 
 export const sidePanelReducer = sidePanelSlice.reducer

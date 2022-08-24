@@ -1,16 +1,40 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import classNames from 'classnames'
 
 import S from './AppLayout.module.scss'
 import SidePanel from '../../app/sidePanel/SidePanel'
 import { LayoutProps } from '../../../ts/interface'
-import { useAppSelector } from '../../../store'
+import { useAppDispatch, useAppSelector } from '../../../store'
+import { changeTheme, UISlice } from '../../../store/slices/app/UISlice'
+import { ThemeColors, ToolkitOptionsList } from '../../../ts/enum'
+import {
+  sidePanelSlice,
+  setSelected,
+} from '../../../store/slices/app/sidePanelSlice'
 
 const AppLayout: FC<LayoutProps> = ({ children }) => {
-  const themeMode = useAppSelector((state) => state.UIReducer.theme)
+  const dispatch = useAppDispatch()
+  const { themeColor } = useAppSelector((state) => state.UIReducer)
+
+  // presetting the store
+  useEffect(() => {
+    dispatch(
+      changeTheme(
+        (localStorage.getItem('themeColor') as ThemeColors) ||
+          UISlice.getInitialState().themeColor
+      )
+    )
+
+    dispatch(
+      setSelected(
+        (localStorage.getItem('selected') as ToolkitOptionsList) ||
+          sidePanelSlice.getInitialState().selected
+      )
+    )
+  }, [dispatch])
 
   return (
-    <main className={classNames(themeMode, S.appLayout)}>
+    <main className={classNames(themeColor, S.appLayout)}>
       <SidePanel />
       {children}
     </main>

@@ -39,5 +39,9 @@
     &.double {
       grid-template-columns: 1fr 1fr;
     }
+
+    .image {
+      cursor: pointer;
+    }
   }
 }

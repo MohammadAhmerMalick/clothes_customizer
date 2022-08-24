@@ -1,16 +1,15 @@
-import { ChangeEvent, KeyboardEvent, ReactNode } from 'react'
+import { KeyboardEvent, ReactNode } from 'react'
 import { IconType } from 'react-icons'
 
-import { ThemeModes } from './enum'
+import { ThemeColors, ToolkitOptionsList } from './enum'
 
 // slices
 export interface UISliceInterface {
-  theme: ThemeModes.LIGHT | ThemeModes.DARK
+  themeColor: ThemeColors
 }
 
 export interface sidePanelSliceInterface {
-  selected: string
-  toolkitPanelTitle: string
+  selected: ToolkitOptionsList
 }
 
 // toolkitOption

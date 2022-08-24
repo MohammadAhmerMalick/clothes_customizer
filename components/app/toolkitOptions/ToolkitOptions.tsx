@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import classNames from 'classnames'
 import { BsTextareaT } from 'react-icons/bs'
 import { AiOutlineCloudUpload, AiOutlinePicture } from 'react-icons/ai'
@@ -8,25 +8,16 @@ import { MdOutlineDarkMode } from 'react-icons/md'
 
 import S from './ToolkitOptions.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../store'
-import { ThemeModes, ToolkitOptionsList } from '../../../ts/enum'
+import { ThemeColors, ToolkitOptionsList } from '../../../ts/enum'
 import { changeTheme } from '../../../store/slices/app/UISlice'
 import { ToolkitOptionButtonInterface } from '../../../ts/interface'
-import { updateSidePanelState } from '../../../store/slices/app/sidePanelSlice'
+import { setSelected } from '../../../store/slices/app/sidePanelSlice'
 import IconButton from '../../common/buttons/IconButton'
 
 const ToolkitOptions: FC = () => {
-  const { theme } = useAppSelector((state) => state.UIReducer)
+  const { themeColor } = useAppSelector((state) => state.UIReducer)
   const { selected } = useAppSelector((state) => state.sidePanelReducer)
   const dispatch = useAppDispatch()
-
-  const handleCLick = (title: string) => {
-    dispatch(
-      updateSidePanelState({
-        selected: title,
-        toolkitPanelTitle: title,
-      })
-    )
-  }
 
   const toolkitOptionButtons: ToolkitOptionButtonInterface[] = [
     { title: ToolkitOptionsList.ADD_TEXT, Icon: BsTextareaT },
@@ -43,6 +34,10 @@ const ToolkitOptions: FC = () => {
       Icon: IoColorPaletteOutline,
     },
   ]
+
+  const handleCLick = (title: ToolkitOptionsList) => {
+    dispatch(setSelected(title))
+  }
 
   return (
     <div className={S.toolkitOptions}>
@@ -64,17 +59,17 @@ const ToolkitOptions: FC = () => {
 
       {/* button icons */}
       <div className={S.bottom}>
-        {theme === ThemeModes.LIGHT ? (
+        {themeColor === ThemeColors.LIGHT ? (
           <IconButton
             className={S.button}
-            onClick={() => dispatch(changeTheme(ThemeModes.DARK))}
+            onClick={() => dispatch(changeTheme(ThemeColors.DARK))}
           >
             <MdOutlineDarkMode className={S.icon} />
           </IconButton>
         ) : (
           <IconButton
             className={S.button}
-            onClick={() => dispatch(changeTheme(ThemeModes.LIGHT))}
+            onClick={() => dispatch(changeTheme(ThemeColors.LIGHT))}
           >
             <FiSun className={S.icon} />
           </IconButton>
