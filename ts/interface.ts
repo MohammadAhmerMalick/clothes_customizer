@@ -12,6 +12,10 @@ export interface sidePanelSliceInterface {
   selected: ToolkitOptionsList
 }
 
+export interface searchesSliceInterface {
+  unSplashResults: object[]
+}
+
 // toolkitOption
 export interface ToolkitOptionButtonInterface {
   title: string
@@ -39,4 +43,8 @@ export interface IconButtonInterface {
   className?: string
   onClick?(title?: string): void
   children: ReactNode
+}
+
+export interface LoadingCircleInterface {
+  className?: string
 }

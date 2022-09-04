@@ -36,12 +36,31 @@
     &.single {
       grid-template-columns: 1fr;
     }
+
     &.double {
       grid-template-columns: 1fr 1fr;
     }
 
     .image {
-      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .imageBox {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        cursor: pointer;
+
+        img {
+          max-width: 100%;
+        }
+      }
     }
   }
 }
