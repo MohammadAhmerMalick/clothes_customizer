@@ -48,3 +48,14 @@ export interface IconButtonInterface {
 export interface LoadingCircleInterface {
   className?: string
 }
+
+/* *********
+  Utils
+ ********* */
+
+export interface ToasterInterface {
+  success: (message: string) => void
+  error: (message: string) => void
+  info: (message: string) => void
+  warn: (message: string) => void
+}

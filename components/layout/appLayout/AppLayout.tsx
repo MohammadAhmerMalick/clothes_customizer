@@ -1,5 +1,7 @@
 import { FC, useEffect } from 'react'
 import classNames from 'classnames'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import S from './AppLayout.module.scss'
 import SidePanel from '../../app/sidePanel/SidePanel'
@@ -35,6 +37,7 @@ const AppLayout: FC<LayoutProps> = ({ children }) => {
 
   return (
     <main className={classNames(themeColor, S.appLayout)}>
+      <ToastContainer />
       <SidePanel />
       {children}
     </main>

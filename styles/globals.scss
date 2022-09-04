@@ -33,3 +33,17 @@ svg {
     transition: 0s !important;
   }
 }
+
+// Toastify
+
+.Toastify {
+  position: absolute;
+}
+
+.Toastify__toast-theme--light {
+  --toastify-color-light: var(--PrimaryBG);
+  --toastify-color-dark: var(--PrimaryBG);
+
+  --toastify-text-color-light: var(--TC);
+  --toastify-text-color-dark: var(--TC);
+}

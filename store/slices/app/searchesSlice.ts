@@ -5,6 +5,7 @@ import { searchesSliceInterface } from '../../../ts/interface'
 const initialState: searchesSliceInterface = {
   unSplashResults: [],
 }
+
 const searchesSlice = createSlice({
   name: 'searches',
   initialState,
