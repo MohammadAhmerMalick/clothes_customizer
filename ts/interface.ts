@@ -3,7 +3,14 @@ import { IconType } from 'react-icons'
 
 import { ThemeColors, ToolkitOptionsList } from './enum'
 
-// slices
+/* *********
+   states
+  ********* */
+
+/* *********
+   slices
+  ********* */
+
 export interface UISliceInterface {
   themeColor: ThemeColors
 }
@@ -13,7 +20,24 @@ export interface sidePanelSliceInterface {
 }
 
 export interface searchesSliceInterface {
-  unSplashResults: object[]
+  unSplashImages: {
+    loading: boolean
+    data: {
+      id: string
+      urls: {
+        raw: string
+        full: string
+        regular: string
+        small: string
+        thumb: string
+        small_s3: string
+      }
+      width: number
+      height: number
+      color: string
+    }[]
+    error: object
+  }
 }
 
 // toolkitOption

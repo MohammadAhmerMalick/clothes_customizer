@@ -1,6 +1,6 @@
 import { toast, ToastOptions } from 'react-toastify'
 
-import { ToasterInterface } from '../../ts/interface'
+import { ToasterInterface } from '../ts/interface'
 
 const toasterOptions: ToastOptions = {
   position: toast.POSITION.TOP_RIGHT,
