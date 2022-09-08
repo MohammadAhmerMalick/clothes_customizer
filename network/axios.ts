@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const fetchUnSplashImages = async (keyword = ''): Promise<object> => {
-  const clientId = 'MGyvofWOp0tqz5fUqACilxugQMA23AHpQ1H8cvb9YSc'
+  const clientId = process.env.UNSPLASH_API_CLIENT_ID
   const perPage = 30
   const query = keyword
   const page = 1

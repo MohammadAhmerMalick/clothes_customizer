@@ -67,7 +67,7 @@ const AddImage: FC = () => {
             >
               <Image
                 src={image.urls.small}
-                alt="cat"
+                alt={keyword}
                 width={image.width / (image.width / 400)}
                 height={image.height / (image.width / 400)}
               />
