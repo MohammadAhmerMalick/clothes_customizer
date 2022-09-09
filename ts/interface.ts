@@ -66,7 +66,9 @@ export interface IconButtonInterface {
   title?: string
   className?: string
   onClick?(title?: string): void
-  children: ReactNode
+  Icon: IconType
+  isActive?: boolean
+  IconClassName?: string
 }
 
 export interface LoadingCircleInterface {

@@ -47,13 +47,11 @@ const ToolkitOptions: FC = () => {
           <IconButton
             key={title}
             title={title}
-            className={classNames(S.button, {
-              [S.active]: selected === title,
-            })}
+            className={classNames(S.button)}
+            isActive={selected === title}
             onClick={handleCLick}
-          >
-            <Icon className={S.icon} />
-          </IconButton>
+            Icon={Icon}
+          />
         ))}
       </div>
 
@@ -63,21 +61,17 @@ const ToolkitOptions: FC = () => {
           <IconButton
             className={S.button}
             onClick={() => dispatch(changeTheme(ThemeColors.DARK))}
-          >
-            <MdOutlineDarkMode className={S.icon} />
-          </IconButton>
+            Icon={MdOutlineDarkMode}
+          />
         ) : (
           <IconButton
             className={S.button}
             onClick={() => dispatch(changeTheme(ThemeColors.LIGHT))}
-          >
-            <FiSun className={S.icon} />
-          </IconButton>
+            Icon={FiSun}
+          />
         )}
 
-        <IconButton className={S.button}>
-          <FiSettings className={S.icon} />
-        </IconButton>
+        <IconButton className={S.button} Icon={FiSettings} />
       </div>
     </div>
   )

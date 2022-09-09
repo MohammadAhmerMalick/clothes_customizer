@@ -1,3 +1,5 @@
+@import '/styles/variables.scss';
+
 .iconContainer {
   cursor: pointer;
 
@@ -5,4 +7,18 @@
   outline: 0;
 
   background-color: transparent;
+
+  border-radius: $borderRadiusNormal;
+
+  .icon {
+    display: flex;
+
+    margin: auto;
+
+    font-size: 26px;
+  }
+
+  &.active {
+    background-color: var(--SecondaryBG);
+  }
 }

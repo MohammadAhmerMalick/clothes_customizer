@@ -3,6 +3,17 @@
 .addImage {
   padding: $toolkitPanelPadding;
 
+  .inputContainer {
+    display: grid;
+    grid-template-columns: auto 37px;
+    gap: 8px;
+    .searchButton {
+      background-color: var(--primaryColor);
+
+      border-radius: $borderRadiusLight;
+    }
+  }
+
   .alignmentContainer {
     display: flex;
     justify-content: flex-end;
@@ -10,18 +21,11 @@
     margin-top: 15px;
 
     .button {
-      padding: 5px;
-
-      border-radius: $borderRadiusNormal;
+      width: 30px;
+      height: 30px;
 
       .icon {
-        display: flex;
-
         font-size: 20px;
-      }
-
-      &.active {
-        background-color: var(--SecondaryBG);
       }
     }
   }

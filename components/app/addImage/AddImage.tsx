@@ -30,33 +30,33 @@ const AddImage: FC = () => {
 
   return (
     <div className={S.addImage}>
-      <Input
-        type="text"
-        placeholder="Keyword"
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        Icon={RiSearch2Line}
-      />
+      <div className={S.inputContainer}>
+        <Input
+          type="text"
+          placeholder="Keyword"
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
+        <IconButton className={S.searchButton} Icon={RiSearch2Line} />
+      </div>
 
       <div className={S.alignmentContainer}>
         <IconButton
           title="single"
-          className={classNames(S.button, {
-            [S.active]: itemPerColumn === 'single',
-          })}
+          className={classNames(S.button)}
+          isActive={itemPerColumn === 'single'}
           onClick={() => setItemPerColumn('single')}
-        >
-          <IoMdSquareOutline className={S.icon} />
-        </IconButton>
+          Icon={IoMdSquareOutline}
+          IconClassName={S.icon}
+        />
         <IconButton
           title="double"
-          className={classNames(S.button, {
-            [S.active]: itemPerColumn === 'double',
-          })}
+          className={classNames(S.button)}
+          isActive={itemPerColumn === 'double'}
           onClick={() => setItemPerColumn('double')}
-        >
-          <BiGridAlt className={S.icon} />
-        </IconButton>
+          Icon={BiGridAlt}
+          IconClassName={S.icon}
+        />
       </div>
       <div className={classNames(S.imageContainer, S[itemPerColumn])}>
         {unSplashImages.data.map((image) => (

@@ -1,5 +1,3 @@
-@import '/styles/variables.scss';
-
 .toolkitOptions {
   display: flex;
   flex-direction: column;
@@ -18,18 +16,6 @@
     .button {
       margin: auto;
       padding: 12px;
-
-      border-radius: $borderRadiusNormal;
-
-      .icon {
-        display: flex;
-
-        font-size: 26px;
-      }
-
-      &.active {
-        background-color: var(--SecondaryBG);
-      }
     }
   }
 }

@@ -8,7 +8,9 @@ const IconButton: FC<IconButtonInterface> = ({
   title,
   className,
   onClick,
-  children,
+  Icon,
+  isActive,
+  IconClassName,
 }) => {
   const handleClick = () => {
     if (!title && onClick) onClick()
@@ -18,10 +20,14 @@ const IconButton: FC<IconButtonInterface> = ({
     <button
       type="button"
       title={title}
-      className={classNames(S.iconContainer, className)}
+      className={classNames(
+        S.iconContainer,
+        { [S.active]: isActive },
+        className
+      )}
       onClick={handleClick}
     >
-      {children}
+      <Icon className={classNames(S.icon, IconClassName)} />
     </button>
   )
 }

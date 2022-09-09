@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import './variables.scss';
 
 .dark {
   --PrimaryBG: #{$darkPrimaryBG};
@@ -10,4 +10,8 @@
   --PrimaryBG: #{$brightPrimaryBG};
   --SecondaryBG: #{$brightSecondaryBG};
   --TC: #{$brightTC};
+}
+
+:root {
+  --primaryColor: #{$primaryColor};
 }
