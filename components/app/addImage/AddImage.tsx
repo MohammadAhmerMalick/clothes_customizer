@@ -46,6 +46,7 @@ const AddImage: FC = () => {
           className={S.searchButton}
           Icon={loading ? LoadingCircle : RiSearch2Line}
           onClick={search}
+          IconClassName={S.icon}
         />
       </div>
 

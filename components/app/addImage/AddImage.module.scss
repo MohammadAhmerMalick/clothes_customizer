@@ -2,11 +2,12 @@
 
 .addImage {
   & > * {
+    margin-top: $toolkitPanelgaps;
+
     padding: {
-      left: $toolkitXPanelPadding;
-      right: $toolkitXPanelPadding;
+      left: $toolkitPanelgaps;
+      right: $toolkitPanelgaps;
     }
-    // background-color: red;
   }
 
   .inputContainer {
@@ -17,6 +18,10 @@
       background-color: var(--PrimaryColor);
 
       border-radius: $borderRadiusLight;
+
+      .icon {
+        font-size: 20px;
+      }
     }
   }
 
@@ -24,13 +29,13 @@
     display: flex;
     justify-content: flex-end;
 
-    margin-top: 15px;
-
     .button {
       $size: 40px;
 
       width: $size;
       height: $size;
+
+      border-radius: $borderRadiusLight;
 
       .icon {
         font-size: 20px;
@@ -39,19 +44,20 @@
   }
 
   .imageContainer {
+    $scrollOffset: 5px;
+
     display: grid;
-    gap: 15px;
+    gap: $toolkitPanelgaps;
     grid-template-columns: 1fr;
 
-    height: 81vh;
+    height: 80vh;
 
     margin: {
-      top: 15px;
-      right: 5px;
+      right: $scrollOffset;
     }
 
     padding: {
-      left: calc($toolkitXPanelPadding - 5px);
+      right: calc($toolkitPanelgaps - $scrollOffset);
     }
 
     overflow: auto;
