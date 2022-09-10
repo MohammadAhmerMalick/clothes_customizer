@@ -21,6 +21,9 @@
 
       .icon {
         font-size: 20px;
+        * {
+          color: var(--PrimaryTC);
+        }
       }
     }
   }
