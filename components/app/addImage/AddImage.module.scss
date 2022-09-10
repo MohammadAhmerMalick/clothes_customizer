@@ -53,7 +53,7 @@
     gap: $toolkitPanelgaps;
     grid-template-columns: 1fr;
 
-    height: 80vh;
+    height: calc(100vh - 189px);
 
     margin: {
       right: $scrollOffset;
