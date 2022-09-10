@@ -1,4 +1,4 @@
-import { KeyboardEvent, ReactNode } from 'react'
+import { FC, KeyboardEvent, ReactNode } from 'react'
 import { IconType } from 'react-icons'
 
 import { ThemeColors, ToolkitOptionsList } from './enum'
@@ -62,17 +62,17 @@ export interface InputInterface {
   Icon?: IconType
 }
 
+export interface LoadingCircleInterface {
+  className?: string
+}
+
 export interface IconButtonInterface {
   title?: string
   className?: string
   onClick?(title?: string): void
-  Icon: IconType
+  Icon: IconType | FC<LoadingCircleInterface>
   isActive?: boolean
   IconClassName?: string
-}
-
-export interface LoadingCircleInterface {
-  className?: string
 }
 
 /* *********

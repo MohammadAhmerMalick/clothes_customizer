@@ -1,4 +1,5 @@
 @import './theme.scss';
+@import './variables.scss';
 
 html,
 body {
@@ -32,6 +33,30 @@ svg {
   * {
     transition: 0s !important;
   }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: $borderRadiusNormal;
+
+  background: var(--SecondaryBG);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--PrimaryColor);
+
+  border-radius: $borderRadiusNormal;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken($primaryColor, 10%);
 }
 
 // Toastify

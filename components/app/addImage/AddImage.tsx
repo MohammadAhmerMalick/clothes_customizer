@@ -10,10 +10,13 @@ import Input from '../../common/inputs/Input'
 import IconButton from '../../common/buttons/IconButton'
 import { useAppDispatch, useAppSelector } from '../../../store'
 import { getUnSplashImagesAction } from '../../../store/slices/app/searchesSlice'
+import LoadingCircle from '../../common/loading/LoadingCircle'
 
 const AddImage: FC = () => {
   const dispatch = useAppDispatch()
-  const { unSplashImages } = useAppSelector((state) => state.searchReducer)
+  const { loading, data } = useAppSelector(
+    (state) => state.searchReducer.unSplashImages
+  )
 
   const [keyword, setKeyword] = useState('')
   const [itemPerColumn, setItemPerColumn] = useState<'single' | 'double'>(
@@ -24,8 +27,10 @@ const AddImage: FC = () => {
     setKeyword(value)
   }
 
+  const search = () => !loading && dispatch(getUnSplashImagesAction(keyword))
+
   const handleKeyDown = async (e: KeyboardEvent) => {
-    if (e.key === 'Enter') dispatch(getUnSplashImagesAction(keyword))
+    if (e.key === 'Enter') search()
   }
 
   return (
@@ -37,7 +42,11 @@ const AddImage: FC = () => {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
-        <IconButton className={S.searchButton} Icon={RiSearch2Line} />
+        <IconButton
+          className={S.searchButton}
+          Icon={loading ? LoadingCircle : RiSearch2Line}
+          onClick={search}
+        />
       </div>
 
       <div className={S.alignmentContainer}>
@@ -58,8 +67,12 @@ const AddImage: FC = () => {
           IconClassName={S.icon}
         />
       </div>
-      <div className={classNames(S.imageContainer, S[itemPerColumn])}>
-        {unSplashImages.data.map((image) => (
+      <div
+        className={classNames(S.imageContainer, S[itemPerColumn], {
+          [S.loading]: loading,
+        })}
+      >
+        {data.map((image) => (
           <div key={image.id} className={S.image}>
             <div
               className={S.imageBox}
