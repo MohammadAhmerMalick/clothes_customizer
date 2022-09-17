@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ToolkitOptionsList } from '../../../ts/enum'
 
-import { sidePanelSliceInterface } from '../../../ts/interface'
+import { ImageAlignmentoptionsEnum, ToolkitOptionsList } from '../../../ts/enum'
+import { SidePanelSliceInterface } from '../../../ts/interface'
 
-const initialState: sidePanelSliceInterface = {
+const initialState: SidePanelSliceInterface = {
   selected: ToolkitOptionsList.ADD_TEXT,
-  imageLayoutOption: 'single',
+  imageLayoutOption: ImageAlignmentoptionsEnum.SINGLE,
 }
 
 export const sidePanelSlice = createSlice({
@@ -13,15 +13,15 @@ export const sidePanelSlice = createSlice({
   initialState,
   reducers: {
     setSelected: (
-      state: sidePanelSliceInterface,
-      { payload }: PayloadAction<sidePanelSliceInterface['selected']>
+      state: SidePanelSliceInterface,
+      { payload }: PayloadAction<SidePanelSliceInterface['selected']>
     ) => {
       localStorage.setItem('selected', payload)
       return { ...state, selected: payload }
     },
     setImageLayoutOption: (
-      state: sidePanelSliceInterface,
-      { payload }: PayloadAction<sidePanelSliceInterface['imageLayoutOption']>
+      state: SidePanelSliceInterface,
+      { payload }: PayloadAction<SidePanelSliceInterface['imageLayoutOption']>
     ) => {
       localStorage.setItem('imageLayoutOption', payload)
       return { ...state, imageLayoutOption: payload }

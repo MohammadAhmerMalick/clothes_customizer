@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { toaster } from '../../../utils/utilsFunctions'
 import { getUnSplashImages } from '../../../network/apiCalls'
-import { searchesSliceInterface } from '../../../ts/interface'
+import { SearchesSliceInterface } from '../../../ts/interface'
 
-const initialState: searchesSliceInterface = {
+const initialState: SearchesSliceInterface = {
   unSplashImages: {
     loading: false,
     data: [],
@@ -33,11 +33,11 @@ const searchesSlice = createSlice({
   initialState,
   reducers: {
     setUnSplashResults: (
-      state: searchesSliceInterface,
-      action: PayloadAction<searchesSliceInterface['unSplashImages']>
+      state: SearchesSliceInterface,
+      { payload }: PayloadAction<SearchesSliceInterface['unSplashImages']>
     ) => ({
       ...state,
-      unSplashResults: action.payload,
+      unSplashResults: payload,
     }),
   },
   extraReducers: (builder) => {
@@ -49,20 +49,20 @@ const searchesSlice = createSlice({
           loading: true,
         },
       }))
-      .addCase(getUnSplashImagesAction.fulfilled, (state, action) => ({
+      .addCase(getUnSplashImagesAction.fulfilled, (state, { payload }) => ({
         ...state,
         unSplashImages: {
           loading: false,
-          data: action.payload,
+          data: payload,
           error: {},
         },
       }))
-      .addCase(getUnSplashImagesAction.rejected, (state, action) => ({
+      .addCase(getUnSplashImagesAction.rejected, (state, { payload }) => ({
         ...state,
         unSplashImages: {
           ...state.unSplashImages,
           loading: false,
-          error: action.payload as object,
+          error: payload as object,
         },
       }))
   },

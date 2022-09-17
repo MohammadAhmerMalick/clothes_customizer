@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import S from './AppLayout.module.scss'
 import SidePanel from '../../app/sidePanel/SidePanel'
-import { LayoutProps, sidePanelSliceInterface } from '../../../ts/interface'
+import { LayoutProps, SidePanelSliceInterface } from '../../../ts/interface'
 import { useAppDispatch, useAppSelector } from '../../../store'
 import { changeTheme, UISlice } from '../../../store/slices/app/UISlice'
 import { ThemeColors, ToolkitOptionsList } from '../../../ts/enum'
@@ -45,7 +45,7 @@ const AppLayout: FC<LayoutProps> = ({ children }) => {
       setImageLayoutOption(
         (localStorage.getItem(
           'imageLayoutOption'
-        ) as sidePanelSliceInterface['imageLayoutOption']) ||
+        ) as SidePanelSliceInterface['imageLayoutOption']) ||
           sidePanelSlice.getInitialState().imageLayoutOption
       )
     )

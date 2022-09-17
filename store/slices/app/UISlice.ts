@@ -13,12 +13,12 @@ export const UISlice = createSlice({
   reducers: {
     changeTheme: (
       state: UISliceInterface,
-      action: PayloadAction<UISliceInterface['themeColor']>
+      { payload }: PayloadAction<UISliceInterface['themeColor']>
     ) => {
-      localStorage.setItem('themeColor', action.payload)
+      localStorage.setItem('themeColor', payload)
       return {
         ...state,
-        themeColor: action.payload,
+        themeColor: payload,
       }
     },
   },

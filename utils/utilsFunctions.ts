@@ -19,4 +19,5 @@ export const toaster: ToasterInterface = {
   warn: (message) => toast.success(message, toasterOptions),
 }
 
-export const x = 'x'
+export const capitalize = (string: string) =>
+  string ? string.charAt(0).toUpperCase() + string.slice(1) : ''

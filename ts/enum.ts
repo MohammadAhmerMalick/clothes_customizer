@@ -10,3 +10,15 @@ export enum ToolkitOptionsList {
   SELECT_PRODUCT = 'Select Product',
   COLOR = 'Color',
 }
+
+export enum ImageAlignmentoptionsEnum {
+  SINGLE = 'single',
+  DOUBLE = 'double',
+}
+
+export enum ProductsSides {
+  FRONT = 'front',
+  BACK = 'back',
+  LEFT = 'left',
+  RIGHT = 'right',
+}

@@ -37,6 +37,7 @@ const AddImage: FC = () => {
       <div className={S.inputContainer}>
         <Input
           type="text"
+          className={S.input}
           placeholder="Keyword"
           onChange={handleChange}
           onKeyDown={handleKeyDown}

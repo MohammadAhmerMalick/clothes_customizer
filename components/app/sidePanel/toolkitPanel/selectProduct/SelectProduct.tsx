@@ -1,64 +1,43 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 
 import S from './SelectProduct.module.scss'
-import { getProducts } from '../../../../../network/apiCalls'
 import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
-import { useAppSelector } from '../../../../../store'
+import { useAppDispatch, useAppSelector } from '../../../../../store'
+import { getProductsAction } from '../../../../../store/slices/app/productSlice'
 
 const SelectProduct: FC = () => {
+  const dispatch = useAppDispatch()
   const { imageLayoutOption } = useAppSelector(
     (state) => state.sidePanelReducer
   )
-
-  const [image, setImage] = useState({
-    selectedSide: '',
-    selectedImage: {
-      front: '',
-      back: '',
-      left: '',
-      right: '',
-    },
-    data: [
-      {
-        front: '',
-        back: '',
-        left: '',
-        right: '',
-      },
-    ],
-  })
-
-  const x = async () => {
-    try {
-      const data = await getProducts()
-
-      setImage((oldState) => ({
-        ...oldState,
-        selectedSide: data[0].front,
-        selectedImage: data[0],
-        data,
-      }))
-    } catch (error) {
-      console.log({ error })
-    }
-  }
+  const { loading, data } = useAppSelector((state) => state.productReducer)
 
   useEffect(() => {
-    x()
-  }, [])
+    dispatch(getProductsAction())
+  }, [dispatch])
 
   return (
     <div className={S.selectProduct}>
       <ImageAlignmentoptions />
-      <div className={classNames(S.products, S[imageLayoutOption])}>
-        {image.data.map((product) => (
-          <div key={product.front}>
-            <Image src={product.front} alt="Product" width={400} height={400} />
-          </div>
-        ))}
-      </div>
+
+      {!loading && data && (
+        <div className={classNames(S.products, S[imageLayoutOption])}>
+          {data.allProducts.map((product) => (
+            <div key={product.front}>
+              {product.front && (
+                <Image
+                  src={product.front}
+                  alt="Product"
+                  width={400}
+                  height={400}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

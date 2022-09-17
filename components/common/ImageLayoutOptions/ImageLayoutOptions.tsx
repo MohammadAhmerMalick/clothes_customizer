@@ -6,8 +6,10 @@ import { IoMdSquareOutline } from 'react-icons/io'
 import S from './ImageLayoutOptions.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../store'
 import { setImageLayoutOption } from '../../../store/slices/app/sidePanelSlice'
-import { sidePanelSliceInterface } from '../../../ts/interface'
+import { ImageAlignmentoptionsEnum } from '../../../ts/enum'
+import { SidePanelSliceInterface } from '../../../ts/interface'
 import IconButton from '../buttons/IconButton'
+import { capitalize } from '../../../utils/utilsFunctions'
 
 const ImageAlignmentoptions: FC = () => {
   const dispatch = useAppDispatch()
@@ -15,25 +17,25 @@ const ImageAlignmentoptions: FC = () => {
     (state) => state.sidePanelReducer
   )
 
-  const setValue = (value: sidePanelSliceInterface['imageLayoutOption']) => {
+  const setValue = (value: SidePanelSliceInterface['imageLayoutOption']) => {
     dispatch(setImageLayoutOption(value))
   }
 
   return (
     <div className={S.imageAlignmentoptions}>
       <IconButton
-        title="Single"
+        title={capitalize(ImageAlignmentoptionsEnum.SINGLE)}
         className={classNames(S.button)}
-        isActive={imageLayoutOption === 'single'}
-        onClick={() => setValue('single')}
+        isActive={imageLayoutOption === ImageAlignmentoptionsEnum.SINGLE}
+        onClick={() => setValue(ImageAlignmentoptionsEnum.SINGLE)}
         Icon={IoMdSquareOutline}
         IconClassName={S.icon}
       />
       <IconButton
-        title="Double"
+        title={capitalize(ImageAlignmentoptionsEnum.DOUBLE)}
         className={classNames(S.button)}
-        isActive={imageLayoutOption === 'double'}
-        onClick={() => setValue('double')}
+        isActive={imageLayoutOption === ImageAlignmentoptionsEnum.DOUBLE}
+        onClick={() => setValue(ImageAlignmentoptionsEnum.DOUBLE)}
         Icon={BiGridAlt}
         IconClassName={S.icon}
       />

@@ -1,7 +1,12 @@
 import { FC, KeyboardEvent, ReactNode } from 'react'
 import { IconType } from 'react-icons'
 
-import { ThemeColors, ToolkitOptionsList } from './enum'
+import {
+  ImageAlignmentoptionsEnum,
+  ProductsSides,
+  ThemeColors,
+  ToolkitOptionsList,
+} from './enum'
 
 /* *********
    states
@@ -15,12 +20,12 @@ export interface UISliceInterface {
   themeColor: ThemeColors
 }
 
-export interface sidePanelSliceInterface {
+export interface SidePanelSliceInterface {
   selected: ToolkitOptionsList
-  imageLayoutOption: 'single' | 'double'
+  imageLayoutOption: ImageAlignmentoptionsEnum
 }
 
-export interface searchesSliceInterface {
+export interface SearchesSliceInterface {
   unSplashImages: {
     loading: boolean
     data: {
@@ -41,6 +46,23 @@ export interface searchesSliceInterface {
   }
 }
 
+interface AllProductsInterface {
+  front: string
+  back: string
+  left: string
+  right: string
+}
+
+export interface ProductSliceInterface {
+  loading: boolean
+  data: {
+    allProducts: AllProductsInterface[]
+    selectedProduct: AllProductsInterface
+    selectedSide: ProductsSides
+  }
+  error: object
+}
+
 // toolkitOption
 export interface ToolkitOptionButtonInterface {
   title: string
@@ -57,6 +79,7 @@ export interface LayoutProps {
 
 export interface InputInterface {
   type: 'text' | 'email'
+  className?: string
   placeholder?: string
   onChange?(value: string): void
   onKeyDown?(e: KeyboardEvent): void

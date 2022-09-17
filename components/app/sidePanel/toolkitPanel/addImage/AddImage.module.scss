@@ -12,8 +12,15 @@
 
   .inputContainer {
     display: grid;
-    grid-template-columns: auto 37px;
+    grid-template-columns: auto 40px;
+    grid-template-rows: 40px;
     gap: 8px;
+
+    .input {
+      height: 100%;
+      width: 100%;
+    }
+
     .searchButton {
       background-color: var(--PrimaryColor);
 

@@ -6,6 +6,7 @@ import { InputInterface } from '../../../ts/interface'
 
 const Input: FC<InputInterface> = ({
   type,
+  className,
   placeholder,
   onChange,
   onKeyDown,
@@ -20,7 +21,7 @@ const Input: FC<InputInterface> = ({
     <div className={S.inputContainer}>
       {Icon && <Icon className={S.icon} />}
       <input
-        className={classNames(S.input, { [S.withIcon]: Icon })}
+        className={classNames(S.input, className, { [S.withIcon]: Icon })}
         type={type}
         placeholder={placeholder}
         onChange={handleChange}

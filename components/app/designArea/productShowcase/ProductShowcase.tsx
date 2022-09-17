@@ -6,7 +6,7 @@ import S from './ProductShowcase.module.scss'
 const ProductShowcase: FC<{ image: string }> = ({ image }) => {
   return (
     <div className={S.productShowcase}>
-      <Image src={image} alt="Design" width={800} height={800} />
+      {image && <Image src={image} alt="Design" width={800} height={800} />}
     </div>
   )
 }
