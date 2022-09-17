@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { UISliceInterface } from '../../../ts/interface'
-import { ThemeColors } from '../../../ts/enum'
+import { ThemeColorsEnum } from '../../../ts/enum'
 
 const initialState: UISliceInterface = {
-  themeColor: ThemeColors.DARK,
+  themeColor: ThemeColorsEnum.DARK,
 }
 
 export const UISlice = createSlice({

@@ -1,9 +1,9 @@
-export enum ThemeColors {
+export enum ThemeColorsEnum {
   LIGHT = 'light',
   DARK = 'dark',
 }
 
-export enum ToolkitOptionsList {
+export enum ToolkitOptionsListEnum {
   ADD_TEXT = 'Add Text',
   ADD_IMAGE = 'Add Image',
   UPLOAD_IMAGE = 'Upload Image',
@@ -16,7 +16,7 @@ export enum ImageAlignmentoptionsEnum {
   DOUBLE = 'double',
 }
 
-export enum ProductsSides {
+export enum ProductsSidesEnum {
   FRONT = 'front',
   BACK = 'back',
   LEFT = 'left',

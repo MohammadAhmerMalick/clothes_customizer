@@ -1,10 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { ImageAlignmentoptionsEnum, ToolkitOptionsList } from '../../../ts/enum'
+import {
+  ImageAlignmentoptionsEnum,
+  ToolkitOptionsListEnum,
+} from '../../../ts/enum'
 import { SidePanelSliceInterface } from '../../../ts/interface'
 
 const initialState: SidePanelSliceInterface = {
-  selected: ToolkitOptionsList.ADD_TEXT,
+  selected: ToolkitOptionsListEnum.ADD_TEXT,
   imageLayoutOption: ImageAlignmentoptionsEnum.SINGLE,
 }
 

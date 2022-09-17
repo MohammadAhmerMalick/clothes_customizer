@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { getProducts } from '../../../network/apiCalls'
-import { ProductsSides } from '../../../ts/enum'
+import { ProductsSidesEnum } from '../../../ts/enum'
 import { ProductSliceInterface } from '../../../ts/interface'
 import { toaster } from '../../../utils/utilsFunctions'
 
@@ -17,7 +17,7 @@ export const initialState: ProductSliceInterface = {
   data: {
     allProducts: [],
     selectedProduct: productInitialState,
-    selectedSide: ProductsSides.FRONT,
+    selectedSide: ProductsSidesEnum.FRONT,
   },
   error: {},
 }

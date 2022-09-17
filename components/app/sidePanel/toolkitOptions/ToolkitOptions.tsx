@@ -9,7 +9,7 @@ import { GiClothes } from 'react-icons/gi'
 
 import S from './ToolkitOptions.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../../store'
-import { ThemeColors, ToolkitOptionsList } from '../../../../ts/enum'
+import { ThemeColorsEnum, ToolkitOptionsListEnum } from '../../../../ts/enum'
 import { changeTheme } from '../../../../store/slices/app/UISlice'
 import { ToolkitOptionButtonInterface } from '../../../../ts/interface'
 import { setSelected } from '../../../../store/slices/app/sidePanelSlice'
@@ -21,26 +21,26 @@ const ToolkitOptions: FC = () => {
   const dispatch = useAppDispatch()
 
   const toolkitOptionButtons: ToolkitOptionButtonInterface[] = [
-    { title: ToolkitOptionsList.ADD_TEXT, Icon: BsTextareaT },
+    { title: ToolkitOptionsListEnum.ADD_TEXT, Icon: BsTextareaT },
     {
-      title: ToolkitOptionsList.ADD_IMAGE,
+      title: ToolkitOptionsListEnum.ADD_IMAGE,
       Icon: AiOutlinePicture,
     },
     {
-      title: ToolkitOptionsList.UPLOAD_IMAGE,
+      title: ToolkitOptionsListEnum.UPLOAD_IMAGE,
       Icon: AiOutlineCloudUpload,
     },
     {
-      title: ToolkitOptionsList.SELECT_PRODUCT,
+      title: ToolkitOptionsListEnum.SELECT_PRODUCT,
       Icon: GiClothes,
     },
     {
-      title: ToolkitOptionsList.COLOR,
+      title: ToolkitOptionsListEnum.COLOR,
       Icon: IoColorPaletteOutline,
     },
   ]
 
-  const handleCLick = (title: ToolkitOptionsList) => {
+  const handleCLick = (title: ToolkitOptionsListEnum) => {
     dispatch(setSelected(title))
   }
 
@@ -62,16 +62,16 @@ const ToolkitOptions: FC = () => {
 
       {/* button icons */}
       <div className={S.bottom}>
-        {themeColor === ThemeColors.LIGHT ? (
+        {themeColor === ThemeColorsEnum.LIGHT ? (
           <IconButton
             className={S.button}
-            onClick={() => dispatch(changeTheme(ThemeColors.DARK))}
+            onClick={() => dispatch(changeTheme(ThemeColorsEnum.DARK))}
             Icon={MdOutlineDarkMode}
           />
         ) : (
           <IconButton
             className={S.button}
-            onClick={() => dispatch(changeTheme(ThemeColors.LIGHT))}
+            onClick={() => dispatch(changeTheme(ThemeColorsEnum.LIGHT))}
             Icon={FiSun}
           />
         )}

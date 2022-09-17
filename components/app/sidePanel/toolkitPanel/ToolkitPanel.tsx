@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import S from './ToolkitPanel.module.scss'
 import { useAppSelector } from '../../../../store'
-import { ToolkitOptionsList } from '../../../../ts/enum'
+import { ToolkitOptionsListEnum } from '../../../../ts/enum'
 import AddImage from './addImage/AddImage'
 import SelectProduct from './selectProduct/SelectProduct'
 
@@ -13,8 +13,8 @@ const ToolkitPanel: FC = () => {
     <div className={S.toolkitPanel}>
       <p className={S.title}>{selected}</p>
 
-      {selected === ToolkitOptionsList.ADD_IMAGE && <AddImage />}
-      {selected === ToolkitOptionsList.SELECT_PRODUCT && <SelectProduct />}
+      {selected === ToolkitOptionsListEnum.ADD_IMAGE && <AddImage />}
+      {selected === ToolkitOptionsListEnum.SELECT_PRODUCT && <SelectProduct />}
     </div>
   )
 }

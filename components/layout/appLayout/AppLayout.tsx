@@ -8,7 +8,7 @@ import SidePanel from '../../app/sidePanel/SidePanel'
 import { LayoutProps, SidePanelSliceInterface } from '../../../ts/interface'
 import { useAppDispatch, useAppSelector } from '../../../store'
 import { changeTheme, UISlice } from '../../../store/slices/app/UISlice'
-import { ThemeColors, ToolkitOptionsList } from '../../../ts/enum'
+import { ThemeColorsEnum, ToolkitOptionsListEnum } from '../../../ts/enum'
 import {
   sidePanelSlice,
   setSelected,
@@ -27,7 +27,7 @@ const AppLayout: FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     dispatch(
       changeTheme(
-        (localStorage.getItem('themeColor') as ThemeColors) ||
+        (localStorage.getItem('themeColor') as ThemeColorsEnum) ||
           UISlice.getInitialState().themeColor
       )
     )
@@ -35,7 +35,7 @@ const AppLayout: FC<LayoutProps> = ({ children }) => {
     // selected sidePanel option
     dispatch(
       setSelected(
-        (localStorage.getItem('selected') as ToolkitOptionsList) ||
+        (localStorage.getItem('selected') as ToolkitOptionsListEnum) ||
           sidePanelSlice.getInitialState().selected
       )
     )

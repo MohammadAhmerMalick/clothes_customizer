@@ -3,9 +3,9 @@ import { IconType } from 'react-icons'
 
 import {
   ImageAlignmentoptionsEnum,
-  ProductsSides,
-  ThemeColors,
-  ToolkitOptionsList,
+  ProductsSidesEnum,
+  ThemeColorsEnum,
+  ToolkitOptionsListEnum,
 } from './enum'
 
 /* *********
@@ -17,11 +17,11 @@ import {
   ********* */
 
 export interface UISliceInterface {
-  themeColor: ThemeColors
+  themeColor: ThemeColorsEnum
 }
 
 export interface SidePanelSliceInterface {
-  selected: ToolkitOptionsList
+  selected: ToolkitOptionsListEnum
   imageLayoutOption: ImageAlignmentoptionsEnum
 }
 
@@ -58,7 +58,7 @@ export interface ProductSliceInterface {
   data: {
     allProducts: AllProductsInterface[]
     selectedProduct: AllProductsInterface
-    selectedSide: ProductsSides
+    selectedSide: ProductsSidesEnum
   }
   error: object
 }
