@@ -1,26 +1,45 @@
-import Image from 'next/image'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import S from './DesignArea.module.scss'
+import { getProducts } from '../../../network/apiCalls'
 import ProductShowcase from './productShowcase/ProductShowcase'
-
-import front from '../../../assets/images/tShirts/1/front.png'
-import back from '../../../assets/images/tShirts/1/back.png'
-import left from '../../../assets/images/tShirts/1/left.png'
-import right from '../../../assets/images/tShirts/1/right.png'
 import ProductSides from './productSides/ProductSides'
 
 const DesignArea: FC = () => {
   const [image, setImage] = useState({
-    front,
-    back,
-    left,
-    right,
+    selectedSide: '',
+    selectedImage: {
+      front: '',
+      back: '',
+      left: '',
+      right: '',
+    },
+    data: [],
   })
+
+  const x = async () => {
+    try {
+      const data = await getProducts()
+
+      setImage((oldState) => ({
+        ...oldState,
+        selectedSide: data[0].front,
+        selectedImage: data[0],
+        data,
+      }))
+    } catch (error) {
+      console.log({ error })
+    }
+  }
+
+  useEffect(() => {
+    x()
+  }, [])
+
   return (
     <div className={S.designArea}>
-      <ProductShowcase image={image} />
-      <ProductSides image={image} />
+      <ProductShowcase image={image.selectedSide} />
+      <ProductSides image={image.selectedImage} />
     </div>
   )
 }

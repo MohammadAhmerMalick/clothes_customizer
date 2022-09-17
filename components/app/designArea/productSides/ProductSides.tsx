@@ -1,43 +1,61 @@
 import Image from 'next/image'
 import { FC } from 'react'
+
 import S from './ProductSides.module.scss'
 
-const ProductSides: FC<{ image: any }> = ({ image }) => {
+interface Image {
+  image: {
+    front: string
+    back: string
+    left: string
+    right: string
+  }
+}
+
+const ProductSides: FC<Image> = ({ image }) => {
   const dimention = 70
 
   return (
     <div className={S.productSides}>
       <div className={S.imageContainer}>
-        <Image
-          src={image.front}
-          alt="front"
-          width={image.front.width / (image.front.width / dimention)}
-          height={image.front.height / (image.front.width / dimention)}
-        />
+        {image?.front && (
+          <Image
+            src={image.front}
+            alt="front"
+            width={dimention}
+            height={dimention}
+          />
+        )}
       </div>
       <div className={S.imageContainer}>
-        <Image
-          src={image.back}
-          alt="back"
-          width={image.back.width / (image.back.width / dimention)}
-          height={image.back.height / (image.back.width / dimention)}
-        />
+        {image?.back && (
+          <Image
+            src={image.back}
+            alt="back"
+            width={dimention}
+            height={dimention}
+          />
+        )}
       </div>
       <div className={S.imageContainer}>
-        <Image
-          src={image.left}
-          alt="left"
-          width={image.left.width / (image.left.width / dimention)}
-          height={image.left.height / (image.left.width / dimention)}
-        />
+        {image?.left && (
+          <Image
+            src={image.left}
+            alt="left"
+            width={dimention}
+            height={dimention}
+          />
+        )}
       </div>
       <div className={S.imageContainer}>
-        <Image
-          src={image.right}
-          alt="right"
-          width={image.right.width / (image.right.width / dimention)}
-          height={image.right.height / (image.right.width / dimention)}
-        />
+        {image?.right && (
+          <Image
+            src={image.right}
+            alt="right"
+            width={dimention}
+            height={dimention}
+          />
+        )}
       </div>
     </div>
   )
