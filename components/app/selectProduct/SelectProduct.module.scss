@@ -1,30 +1,12 @@
 @import '/styles/variables.scss';
 
-.addImage {
+.selectProduct {
   & > * {
     margin-top: $toolkitPanelgaps;
 
     padding: {
       left: $toolkitPanelgaps;
       right: $toolkitPanelgaps;
-    }
-  }
-
-  .inputContainer {
-    display: grid;
-    grid-template-columns: auto 37px;
-    gap: 8px;
-    .searchButton {
-      background-color: var(--PrimaryColor);
-
-      border-radius: $borderRadiusLight;
-
-      .icon {
-        font-size: 20px;
-        * {
-          color: var(--PrimaryTC);
-        }
-      }
     }
   }
 
@@ -46,14 +28,14 @@
     }
   }
 
-  .imageContainer {
+  .products {
     $scrollOffset: 5px;
 
     display: grid;
     gap: $toolkitPanelgaps;
     grid-template-columns: 1fr;
 
-    max-height: calc(100vh - 189px);
+    max-height: calc(100vh - 137px);
 
     margin: {
       right: $scrollOffset;
