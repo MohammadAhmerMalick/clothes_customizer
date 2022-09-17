@@ -28,24 +28,6 @@
     }
   }
 
-  .alignmentContainer {
-    display: flex;
-    justify-content: flex-end;
-
-    .button {
-      $size: 40px;
-
-      width: $size;
-      height: $size;
-
-      border-radius: $borderRadiusLight;
-
-      .icon {
-        font-size: 20px;
-      }
-    }
-  }
-
   .imageContainer {
     $scrollOffset: 5px;
 

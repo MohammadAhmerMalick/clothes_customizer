@@ -2,8 +2,6 @@ import Image from 'next/image'
 import classNames from 'classnames'
 import { RiSearch2Line } from 'react-icons/ri'
 import { FC, KeyboardEvent, useState } from 'react'
-import { IoMdSquareOutline } from 'react-icons/io'
-import { BiGridAlt } from 'react-icons/bi'
 
 import S from './AddImage.module.scss'
 import Input from '../../../../common/inputs/Input'
@@ -11,17 +9,18 @@ import IconButton from '../../../../common/buttons/IconButton'
 import { useAppDispatch, useAppSelector } from '../../../../../store'
 import { getUnSplashImagesAction } from '../../../../../store/slices/app/searchesSlice'
 import LoadingCircle from '../../../../common/loading/LoadingCircle'
+import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
 
 const AddImage: FC = () => {
   const dispatch = useAppDispatch()
   const { loading, data } = useAppSelector(
     (state) => state.searchReducer.unSplashImages
   )
+  const { imageLayoutOption } = useAppSelector(
+    (state) => state.sidePanelReducer
+  )
 
   const [keyword, setKeyword] = useState('')
-  const [itemPerColumn, setItemPerColumn] = useState<'single' | 'double'>(
-    'single'
-  )
 
   const handleChange = (value: string) => {
     setKeyword(value)
@@ -49,27 +48,9 @@ const AddImage: FC = () => {
           IconClassName={S.icon}
         />
       </div>
-
-      <div className={S.alignmentContainer}>
-        <IconButton
-          title="single"
-          className={classNames(S.button)}
-          isActive={itemPerColumn === 'single'}
-          onClick={() => setItemPerColumn('single')}
-          Icon={IoMdSquareOutline}
-          IconClassName={S.icon}
-        />
-        <IconButton
-          title="double"
-          className={classNames(S.button)}
-          isActive={itemPerColumn === 'double'}
-          onClick={() => setItemPerColumn('double')}
-          Icon={BiGridAlt}
-          IconClassName={S.icon}
-        />
-      </div>
+      <ImageAlignmentoptions />
       <div
-        className={classNames(S.imageContainer, S[itemPerColumn], {
+        className={classNames(S.imageContainer, S[imageLayoutOption], {
           [S.loading]: loading,
         })}
       >

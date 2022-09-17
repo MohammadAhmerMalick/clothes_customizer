@@ -5,20 +5,25 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import S from './AppLayout.module.scss'
 import SidePanel from '../../app/sidePanel/SidePanel'
-import { LayoutProps } from '../../../ts/interface'
+import { LayoutProps, sidePanelSliceInterface } from '../../../ts/interface'
 import { useAppDispatch, useAppSelector } from '../../../store'
 import { changeTheme, UISlice } from '../../../store/slices/app/UISlice'
 import { ThemeColors, ToolkitOptionsList } from '../../../ts/enum'
 import {
   sidePanelSlice,
   setSelected,
+  setImageLayoutOption,
 } from '../../../store/slices/app/sidePanelSlice'
 
 const AppLayout: FC<LayoutProps> = ({ children }) => {
   const dispatch = useAppDispatch()
   const { themeColor } = useAppSelector((state) => state.UIReducer)
 
-  // presetting the store
+  /** *******************
+   * presetting the store
+   ******************** */
+
+  // theme
   useEffect(() => {
     dispatch(
       changeTheme(
@@ -27,10 +32,21 @@ const AppLayout: FC<LayoutProps> = ({ children }) => {
       )
     )
 
+    // selected sidePanel option
     dispatch(
       setSelected(
         (localStorage.getItem('selected') as ToolkitOptionsList) ||
           sidePanelSlice.getInitialState().selected
+      )
+    )
+
+    // selected sidePanel image layout
+    dispatch(
+      setImageLayoutOption(
+        (localStorage.getItem(
+          'imageLayoutOption'
+        ) as sidePanelSliceInterface['imageLayoutOption']) ||
+          sidePanelSlice.getInitialState().imageLayoutOption
       )
     )
   }, [dispatch])

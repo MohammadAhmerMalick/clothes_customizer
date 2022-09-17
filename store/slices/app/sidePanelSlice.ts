@@ -5,6 +5,7 @@ import { sidePanelSliceInterface } from '../../../ts/interface'
 
 const initialState: sidePanelSliceInterface = {
   selected: ToolkitOptionsList.ADD_TEXT,
+  imageLayoutOption: 'single',
 }
 
 export const sidePanelSlice = createSlice({
@@ -13,14 +14,21 @@ export const sidePanelSlice = createSlice({
   reducers: {
     setSelected: (
       state: sidePanelSliceInterface,
-      action: PayloadAction<sidePanelSliceInterface['selected']>
+      { payload }: PayloadAction<sidePanelSliceInterface['selected']>
     ) => {
-      localStorage.setItem('selected', action.payload)
-      return { ...state, selected: action.payload }
+      localStorage.setItem('selected', payload)
+      return { ...state, selected: payload }
+    },
+    setImageLayoutOption: (
+      state: sidePanelSliceInterface,
+      { payload }: PayloadAction<sidePanelSliceInterface['imageLayoutOption']>
+    ) => {
+      localStorage.setItem('imageLayoutOption', payload)
+      return { ...state, imageLayoutOption: payload }
     },
   },
 })
 
-export const { setSelected } = sidePanelSlice.actions
+export const { setSelected, setImageLayoutOption } = sidePanelSlice.actions
 
 export const sidePanelReducer = sidePanelSlice.reducer

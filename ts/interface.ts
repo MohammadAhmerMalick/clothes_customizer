@@ -17,6 +17,7 @@ export interface UISliceInterface {
 
 export interface sidePanelSliceInterface {
   selected: ToolkitOptionsList
+  imageLayoutOption: 'single' | 'double'
 }
 
 export interface searchesSliceInterface {
