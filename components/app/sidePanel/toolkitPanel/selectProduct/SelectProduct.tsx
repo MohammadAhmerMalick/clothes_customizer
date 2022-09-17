@@ -5,8 +5,8 @@ import { BiGridAlt } from 'react-icons/bi'
 import { IoMdSquareOutline } from 'react-icons/io'
 
 import S from './SelectProduct.module.scss'
-import { getProducts } from '../../../network/apiCalls'
-import IconButton from '../../common/buttons/IconButton'
+import { getProducts } from '../../../../../network/apiCalls'
+import IconButton from '../../../../common/buttons/IconButton'
 
 const SelectProduct: FC = () => {
   const [itemPerColumn, setItemPerColumn] = useState<'single' | 'double'>(

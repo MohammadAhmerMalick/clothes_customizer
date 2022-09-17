@@ -13,10 +13,10 @@ const toasterOptions: ToastOptions = {
 }
 
 export const toaster: ToasterInterface = {
-  success: (message: string) => toast.success(message, toasterOptions),
-  error: (message: string) => toast.success(message, toasterOptions),
-  info: (message: string) => toast.success(message, toasterOptions),
-  warn: (message: string) => toast.success(message, toasterOptions),
+  success: (message) => toast.success(message, toasterOptions),
+  error: (message) => toast.success(message, toasterOptions),
+  info: (message) => toast.success(message, toasterOptions),
+  warn: (message) => toast.success(message, toasterOptions),
 }
 
 export const x = 'x'

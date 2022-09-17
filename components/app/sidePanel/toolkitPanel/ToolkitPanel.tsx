@@ -1,11 +1,10 @@
 import { FC } from 'react'
 
-import { useAppSelector } from '../../../store'
-import { ToolkitOptionsList } from '../../../ts/enum'
-import AddImage from '../addImage/AddImage'
-import SelectProduct from '../selectProduct/SelectProduct'
-
 import S from './ToolkitPanel.module.scss'
+import { useAppSelector } from '../../../../store'
+import { ToolkitOptionsList } from '../../../../ts/enum'
+import AddImage from './addImage/AddImage'
+import SelectProduct from './selectProduct/SelectProduct'
 
 const ToolkitPanel: FC = () => {
   const { selected } = useAppSelector((state) => state.sidePanelReducer)

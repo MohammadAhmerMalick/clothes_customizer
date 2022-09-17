@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import classNames from 'classnames'
 import { BsTextareaT } from 'react-icons/bs'
 import { AiOutlineCloudUpload, AiOutlinePicture } from 'react-icons/ai'
@@ -8,12 +8,12 @@ import { MdOutlineDarkMode } from 'react-icons/md'
 import { GiClothes } from 'react-icons/gi'
 
 import S from './ToolkitOptions.module.scss'
-import { useAppDispatch, useAppSelector } from '../../../store'
-import { ThemeColors, ToolkitOptionsList } from '../../../ts/enum'
-import { changeTheme } from '../../../store/slices/app/UISlice'
-import { ToolkitOptionButtonInterface } from '../../../ts/interface'
-import { setSelected } from '../../../store/slices/app/sidePanelSlice'
-import IconButton from '../../common/buttons/IconButton'
+import { useAppDispatch, useAppSelector } from '../../../../store'
+import { ThemeColors, ToolkitOptionsList } from '../../../../ts/enum'
+import { changeTheme } from '../../../../store/slices/app/UISlice'
+import { ToolkitOptionButtonInterface } from '../../../../ts/interface'
+import { setSelected } from '../../../../store/slices/app/sidePanelSlice'
+import IconButton from '../../../common/buttons/IconButton'
 
 const ToolkitOptions: FC = () => {
   const { themeColor } = useAppSelector((state) => state.UIReducer)

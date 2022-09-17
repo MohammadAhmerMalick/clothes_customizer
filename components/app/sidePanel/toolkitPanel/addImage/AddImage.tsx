@@ -6,11 +6,11 @@ import { IoMdSquareOutline } from 'react-icons/io'
 import { BiGridAlt } from 'react-icons/bi'
 
 import S from './AddImage.module.scss'
-import Input from '../../common/inputs/Input'
-import IconButton from '../../common/buttons/IconButton'
-import { useAppDispatch, useAppSelector } from '../../../store'
-import { getUnSplashImagesAction } from '../../../store/slices/app/searchesSlice'
-import LoadingCircle from '../../common/loading/LoadingCircle'
+import Input from '../../../../common/inputs/Input'
+import IconButton from '../../../../common/buttons/IconButton'
+import { useAppDispatch, useAppSelector } from '../../../../../store'
+import { getUnSplashImagesAction } from '../../../../../store/slices/app/searchesSlice'
+import LoadingCircle from '../../../../common/loading/LoadingCircle'
 
 const AddImage: FC = () => {
   const dispatch = useAppDispatch()
