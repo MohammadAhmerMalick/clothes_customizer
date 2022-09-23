@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Image from 'next/image'
 
 import S from './ProductShowcase.module.scss'
 import { useAppSelector } from '../../../../store'
@@ -7,6 +6,7 @@ import {
   ARTBOARD_IMAGE_MAX_WIDTH,
   IMAGE_PLACEHOLDER,
 } from '../../../../utils/constants'
+import CustomImage from '../../../common/customImage/CustomImageInterface'
 
 const ProductShowcase: FC = () => {
   const {
@@ -16,7 +16,7 @@ const ProductShowcase: FC = () => {
   return (
     <div className={S.selectedSide}>
       {selectedProduct[selectedSide] && (
-        <Image
+        <CustomImage
           src={selectedProduct[selectedSide].originalLink || IMAGE_PLACEHOLDER}
           alt="Design"
           width={ARTBOARD_IMAGE_MAX_WIDTH}

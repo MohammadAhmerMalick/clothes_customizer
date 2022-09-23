@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import classNames from 'classnames'
 import { RiSearch2Line } from 'react-icons/ri'
 import { FC, KeyboardEvent, useState } from 'react'
@@ -11,6 +10,7 @@ import { getUnSplashImagesAction } from '../../../../../store/slices/app/searche
 import LoadingCircle from '../../../../common/loading/LoadingCircle'
 import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
 import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../../../../utils/constants'
+import CustomImage from '../../../../common/customImage/CustomImageInterface'
 
 const AddImage: FC = () => {
   const dispatch = useAppDispatch()
@@ -62,7 +62,7 @@ const AddImage: FC = () => {
               className={S.imageBox}
               style={{ backgroundColor: image.color }}
             >
-              <Image
+              <CustomImage
                 src={image.urls.small}
                 alt={keyword}
                 width={image.width / (image.width / SIDE_PANEL_IMAGE_MAX_WIDTH)}

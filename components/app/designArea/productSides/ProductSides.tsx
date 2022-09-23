@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FC } from 'react'
 
 import S from './ProductSides.module.scss'
@@ -8,12 +7,13 @@ import {
   IMAGE_PLACEHOLDER,
   PRODUCT_SIDES_THUMBNAIL_IMAGE_MAX_WIDTH,
 } from '../../../../utils/constants'
+import CustomImage from '../../../common/customImage/CustomImageInterface'
 
 const ImageContainer: FC<ProductSideThumbnailInterface> = ({ link }) => {
   if (link)
     return (
       <div className={S.imageContainer}>
-        <Image
+        <CustomImage
           src={link || IMAGE_PLACEHOLDER}
           alt="front"
           width={PRODUCT_SIDES_THUMBNAIL_IMAGE_MAX_WIDTH}

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import classNames from 'classnames'
 import { FC } from 'react'
 
@@ -10,6 +9,7 @@ import {
   IMAGE_PLACEHOLDER,
   SIDE_PANEL_IMAGE_MAX_WIDTH,
 } from '../../../../../utils/constants'
+import CustomImage from '../../../../common/customImage/CustomImageInterface'
 
 const SelectProduct: FC = () => {
   const dispatch = useAppDispatch()
@@ -30,7 +30,7 @@ const SelectProduct: FC = () => {
           {data.allProducts.map((product) => (
             <div key={product.id}>
               {product.front && (
-                <Image
+                <CustomImage
                   src={IMAGE_PLACEHOLDER}
                   alt="Product"
                   width={SIDE_PANEL_IMAGE_MAX_WIDTH}
