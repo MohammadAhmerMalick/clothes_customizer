@@ -2,61 +2,39 @@ import Image from 'next/image'
 import { FC } from 'react'
 
 import S from './ProductSides.module.scss'
+import { useAppSelector } from '../../../../store'
+import { ProductSideThumbnailInterface } from '../../../../ts/interface'
+import {
+  IMAGE_PLACEHOLDER,
+  PRODUCT_SIDES_THUMBNAIL_IMAGE_MAX_WIDTH,
+} from '../../../../utils/constants'
 
-interface Image {
-  image: {
-    front: string
-    back: string
-    left: string
-    right: string
-  }
+const ImageContainer: FC<ProductSideThumbnailInterface> = ({ link }) => {
+  if (link)
+    return (
+      <div className={S.imageContainer}>
+        <Image
+          src={link || IMAGE_PLACEHOLDER}
+          alt="front"
+          width={PRODUCT_SIDES_THUMBNAIL_IMAGE_MAX_WIDTH}
+          height={PRODUCT_SIDES_THUMBNAIL_IMAGE_MAX_WIDTH}
+        />
+      </div>
+    )
+  return <></>
 }
 
-const ProductSides: FC<Image> = ({ image }) => {
-  const dimention = 70
+const ProductSides: FC = () => {
+  const {
+    data: { selectedProduct },
+  } = useAppSelector((state) => state.productReducer)
 
   return (
     <div className={S.productSides}>
-      <div className={S.imageContainer}>
-        {image?.front && (
-          <Image
-            src={image.front}
-            alt="front"
-            width={dimention}
-            height={dimention}
-          />
-        )}
-      </div>
-      <div className={S.imageContainer}>
-        {image?.back && (
-          <Image
-            src={image.back}
-            alt="back"
-            width={dimention}
-            height={dimention}
-          />
-        )}
-      </div>
-      <div className={S.imageContainer}>
-        {image?.left && (
-          <Image
-            src={image.left}
-            alt="left"
-            width={dimention}
-            height={dimention}
-          />
-        )}
-      </div>
-      <div className={S.imageContainer}>
-        {image?.right && (
-          <Image
-            src={image.right}
-            alt="right"
-            width={dimention}
-            height={dimention}
-          />
-        )}
-      </div>
+      <ImageContainer link={selectedProduct.front.scaledLink} />
+      <ImageContainer link={selectedProduct.back.scaledLink} />
+      <ImageContainer link={selectedProduct.left.scaledLink} />
+      <ImageContainer link={selectedProduct.right.scaledLink} />
     </div>
   )
 }

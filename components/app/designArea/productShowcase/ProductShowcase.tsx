@@ -2,11 +2,27 @@ import { FC } from 'react'
 import Image from 'next/image'
 
 import S from './ProductShowcase.module.scss'
+import { useAppSelector } from '../../../../store'
+import {
+  ARTBOARD_IMAGE_MAX_WIDTH,
+  IMAGE_PLACEHOLDER,
+} from '../../../../utils/constants'
 
-const ProductShowcase: FC<{ image: string }> = ({ image }) => {
+const ProductShowcase: FC = () => {
+  const {
+    data: { selectedSide, selectedProduct },
+  } = useAppSelector((state) => state.productReducer)
+
   return (
-    <div className={S.productShowcase}>
-      {image && <Image src={image} alt="Design" width={800} height={800} />}
+    <div className={S.selectedSide}>
+      {selectedProduct[selectedSide] && (
+        <Image
+          src={selectedProduct[selectedSide].originalLink || IMAGE_PLACEHOLDER}
+          alt="Design"
+          width={ARTBOARD_IMAGE_MAX_WIDTH}
+          height={ARTBOARD_IMAGE_MAX_WIDTH}
+        />
+      )}
     </div>
   )
 }

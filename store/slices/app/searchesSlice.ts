@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { toaster } from '../../../utils/utilsFunctions'
-import { getUnSplashImages } from '../../../network/apiCalls'
+import { callGetUnSplashImages } from '../../../network/apiCalls'
 import { SearchesSliceInterface } from '../../../ts/interface'
 
 const initialState: SearchesSliceInterface = {
@@ -16,7 +16,7 @@ export const getUnSplashImagesAction = createAsyncThunk(
   'getUnSplashImages',
   async (keyword: string, { rejectWithValue }) => {
     try {
-      const response = await getUnSplashImages(keyword)
+      const response = await callGetUnSplashImages(keyword)
       return response
     } catch (error: any) {
       if (!error.response.data) {

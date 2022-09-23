@@ -1,11 +1,15 @@
-import classNames from 'classnames'
 import Image from 'next/image'
-import React, { FC, useEffect } from 'react'
+import classNames from 'classnames'
+import { FC } from 'react'
 
 import S from './SelectProduct.module.scss'
 import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
 import { useAppDispatch, useAppSelector } from '../../../../../store'
 import { getProductsAction } from '../../../../../store/slices/app/productSlice'
+import {
+  IMAGE_PLACEHOLDER,
+  SIDE_PANEL_IMAGE_MAX_WIDTH,
+} from '../../../../../utils/constants'
 
 const SelectProduct: FC = () => {
   const dispatch = useAppDispatch()
@@ -14,24 +18,23 @@ const SelectProduct: FC = () => {
   )
   const { loading, data } = useAppSelector((state) => state.productReducer)
 
-  useEffect(() => {
-    dispatch(getProductsAction())
-  }, [dispatch])
-
   return (
     <div className={S.selectProduct}>
       <ImageAlignmentoptions />
+      <button type="button" onClick={() => dispatch(getProductsAction())}>
+        getProducts
+      </button>
 
       {!loading && data && (
         <div className={classNames(S.products, S[imageLayoutOption])}>
           {data.allProducts.map((product) => (
-            <div key={product.front}>
+            <div key={product.id}>
               {product.front && (
                 <Image
-                  src={product.front}
+                  src={IMAGE_PLACEHOLDER}
                   alt="Product"
-                  width={400}
-                  height={400}
+                  width={SIDE_PANEL_IMAGE_MAX_WIDTH}
+                  height={SIDE_PANEL_IMAGE_MAX_WIDTH}
                 />
               )}
             </div>

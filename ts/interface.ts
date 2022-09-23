@@ -46,18 +46,24 @@ export interface SearchesSliceInterface {
   }
 }
 
-interface AllProductsInterface {
-  front: string
-  back: string
-  left: string
-  right: string
+interface LinkInterface {
+  originalLink?: string
+  scaledLink?: string
+}
+
+interface ProductsInterface {
+  id: string
+  front: LinkInterface
+  back: LinkInterface
+  left: LinkInterface
+  right: LinkInterface
 }
 
 export interface ProductSliceInterface {
   loading: boolean
   data: {
-    allProducts: AllProductsInterface[]
-    selectedProduct: AllProductsInterface
+    allProducts: ProductsInterface[]
+    selectedProduct: ProductsInterface
     selectedSide: ProductsSidesEnum
   }
   error: object
@@ -97,6 +103,18 @@ export interface IconButtonInterface {
   Icon: IconType | FC<LoadingCircleInterface>
   isActive?: boolean
   IconClassName?: string
+}
+
+export interface ProductSideThumbnailInterface {
+  link: string | undefined
+}
+
+export interface CustomImageInterface {
+  src: string
+  height: number
+  width: number
+  alt: string
+  placeholder?: string
 }
 
 /* *********

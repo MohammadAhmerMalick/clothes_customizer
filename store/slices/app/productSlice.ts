@@ -1,15 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { getProducts } from '../../../network/apiCalls'
+import { callGetProducts } from '../../../network/apiCalls'
 import { ProductsSidesEnum } from '../../../ts/enum'
 import { ProductSliceInterface } from '../../../ts/interface'
 import { toaster } from '../../../utils/utilsFunctions'
 
+const links = {
+  originalLink: '',
+  scaledLink: '',
+}
+
 const productInitialState = {
-  front: '',
-  back: '',
-  left: '',
-  right: '',
+  id: '',
+  front: links,
+  back: links,
+  left: links,
+  right: links,
 }
 
 export const initialState: ProductSliceInterface = {
@@ -25,11 +31,17 @@ export const initialState: ProductSliceInterface = {
 export const getProductsAction = createAsyncThunk(
   'getProductsAction',
   async (any, { rejectWithValue }) => {
-    console.log('x')
     try {
-      const response = await getProducts()
+      const response = await callGetProducts()
+
+      if (response.length) {
+        return response
+      }
       console.log({ response })
-      return response
+
+      toaster.info('Unable to load products right now')
+
+      return []
     } catch (error: any) {
       toaster.error(error.response.data.message)
       return rejectWithValue(error.response.data)

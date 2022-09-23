@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '../../../../../store'
 import { getUnSplashImagesAction } from '../../../../../store/slices/app/searchesSlice'
 import LoadingCircle from '../../../../common/loading/LoadingCircle'
 import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
+import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../../../../utils/constants'
 
 const AddImage: FC = () => {
   const dispatch = useAppDispatch()
@@ -64,8 +65,10 @@ const AddImage: FC = () => {
               <Image
                 src={image.urls.small}
                 alt={keyword}
-                width={image.width / (image.width / 400)}
-                height={image.height / (image.width / 400)}
+                width={image.width / (image.width / SIDE_PANEL_IMAGE_MAX_WIDTH)}
+                height={
+                  image.height / (image.width / SIDE_PANEL_IMAGE_MAX_WIDTH)
+                }
               />
             </div>
           </div>
