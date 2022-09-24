@@ -46,17 +46,17 @@ export interface SearchesSliceInterface {
   }
 }
 
-interface LinkInterface {
+export interface LinkInterface {
   originalLink?: string
   scaledLink?: string
 }
 
-interface ProductsInterface {
+export interface ProductsInterface {
   id: string
-  front: LinkInterface
-  back: LinkInterface
-  left: LinkInterface
-  right: LinkInterface
+  front?: LinkInterface
+  back?: LinkInterface
+  left?: LinkInterface
+  right?: LinkInterface
 }
 
 export interface ProductSliceInterface {

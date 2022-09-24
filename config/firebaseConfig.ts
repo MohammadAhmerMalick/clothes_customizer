@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB8z4AIhWe3_vYoVRd2T2LOX9P5sb-J0Vk',
-  authDomain: 'clothes-customizer.firebaseapp.com',
-  projectId: 'clothes-customizer',
-  storageBucket: 'clothes-customizer.appspot.com',
-  messagingSenderId: '888294712353',
-  appId: '1:888294712353:web:15841382afd1579bd12f60',
-  measurementId: 'G-MT92R87QG3',
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 }
 
 const app = initializeApp(firebaseConfig)

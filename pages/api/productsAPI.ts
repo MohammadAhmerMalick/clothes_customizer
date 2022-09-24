@@ -1,6 +1,8 @@
 import { addDoc, collection, getDoc, doc, getDocs } from 'firebase/firestore'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { firestoreDB } from '../../config/firebaseConfig'
+import { ProductsInterface } from '../../ts/interface'
+import { scaleCloudinaryImage } from '../../utils/utilsFunctions'
 
 // const uploadObDb = async () => {
 //   const docRef = await addDoc(collection(firestoreDB, 'products'), {
@@ -13,85 +15,69 @@ import { firestoreDB } from '../../config/firebaseConfig'
 //   console.log({ docRef })
 // }
 
-interface Link {
-  originalLink?: string
-  scaledLink?: string
-}
-
-interface Product {
-  id: string
-  front?: Link
-  back?: Link
-  left?: Link
-  right?: Link
-}
-
-const scaleCloudinaryImage = (link: string, width: number): Link => ({
-  originalLink: link,
-  scaledLink: `${
-    link.split('image/upload/')[0]
-  }image/upload/c_scale,w_${width}/${link.split('image/upload/')[1]}`,
-})
-
 const getProducts = async () => {
+  const data: ProductsInterface[] = []
+
+  // get products list from firebase
   const products = await getDocs(collection(firestoreDB, 'products'))
-  const result: any = []
+  // console.log({ products })
+
+  // console.log({ l: products.forEach.length })
+  // console.log({ d: products.docs })
+  // console.log({ m: products.metadata })
+  // console.log({ q: products.query })
+  // console.log({ s: products.size })
+
+  if (!products.size) {
+    return { data, message: 'No product found' }
+  }
 
   products.forEach((item) => {
-    const product: Product = { id: '' }
+    const product: ProductsInterface = { id: item.id }
 
-    product.id = item.id
-
+    // Object.keys(item.data().t_shirt).forEach((key) => {
     Object.keys(item.data().t_shirts).forEach((key) => {
+      // scale the image
       const scaledImageLInk = scaleCloudinaryImage(
         item.data().t_shirts[key],
         305
       )
-      console.log({ scaledImageLInk })
 
+      // testing by only front
       product.front = scaledImageLInk
     })
 
-    result.push(product)
+    data.push(product)
   })
-
-  // console.log({ result })
-  return result
+  return data
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  // use database for the links
-
-  // this is static declaration
-
-  let pr: any = ''
   try {
-    // uploadObDb()
-    const p = await getProducts()
-    // console.log({ p })
-    pr = p
-  } catch (e) {
-    console.error('Error adding document: ', e)
+    const data = await getProducts()
+    return res.json({ data })
+  } catch (error) {
+    console.log({ getProductsError: error })
+    return res.json({
+      data: { message: 'Unable to get products at this moment', data: [] },
+    })
   }
-
-  // const data = [
-  //   {
-  //     front: '/images/tShirts/1/front.png',
-  //     back: '/images/tShirts/1/back.png',
-  //     left: '/images/tShirts/1/left.png',
-  //     right: '/images/tShirts/1/right.png',
-  //   },
-  //   {
-  //     front: '/images/tShirts/2/front.png',
-  //     back: '/images/tShirts/2/back.png',
-  //     left: '/images/tShirts/2/left.png',
-  //     right: '/images/tShirts/2/right.png',
-  //     pr,
-  //   },
-  // ]
-
-  // return res.json(data)
-  return res.json(pr)
 }
 
 export default handler
+
+// const data = [
+//   {
+//     front: '/images/tShirts/1/front.png',
+//     back: '/images/tShirts/1/back.png',
+//     left: '/images/tShirts/1/left.png',
+//     right: '/images/tShirts/1/right.png',
+//   },
+//   {
+//     front: '/images/tShirts/2/front.png',
+//     back: '/images/tShirts/2/back.png',
+//     left: '/images/tShirts/2/left.png',
+//     right: '/images/tShirts/2/right.png',
+//     pr,
+//   },
+// ]

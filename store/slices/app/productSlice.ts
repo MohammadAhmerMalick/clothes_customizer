@@ -32,19 +32,17 @@ export const getProductsAction = createAsyncThunk(
   'getProductsAction',
   async (any, { rejectWithValue }) => {
     try {
-      const response = await callGetProducts()
-
-      if (response.length) {
-        return response
+      const { data } = await callGetProducts()
+      if (data.length) {
+        return data
       }
-      console.log({ response })
 
-      toaster.info('Unable to load products right now')
+      toaster.info(data.message)
 
       return []
     } catch (error: any) {
-      toaster.error(error.response.data.message)
-      return rejectWithValue(error.response.data)
+      toaster.error(error.data.message)
+      return rejectWithValue(error.data)
     }
   }
 )
