@@ -1,0 +1,22 @@
+@import '/styles/variables.scss';
+
+.dropzone {
+  .dropzoneArea {
+    height: 180px;
+
+    padding: 20px 10px;
+
+    border: 2px dashed var(--SecondaryBG);
+    border-radius: $borderRadiusLight;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    .icon {
+      path {
+        color: var(--TC);
+      }
+    }
+  }
+}

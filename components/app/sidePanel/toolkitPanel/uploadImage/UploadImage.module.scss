@@ -1,0 +1,12 @@
+@import '/styles/variables.scss';
+
+.uploadImage {
+  & > * {
+    margin-top: $toolkitPanelgaps;
+
+    padding: {
+      left: $toolkitPanelgaps;
+      right: $toolkitPanelgaps;
+    }
+  }
+}
