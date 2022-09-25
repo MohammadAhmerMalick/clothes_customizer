@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../../store'
 import { setImageLayoutOption } from '../../../store/slices/app/sidePanelSlice'
 import { ImageAlignmentoptionsEnum } from '../../../ts/enum'
 import { SidePanelSliceInterface } from '../../../ts/interface'
-import IconButton from '../buttons/IconButton'
+import IconButton from '../buttons/iconButton/IconButton'
 import { capitalize } from '../../../utils/utilsFunctions'
 
 const ImageAlignmentoptions: FC = () => {

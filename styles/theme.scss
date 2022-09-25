@@ -14,5 +14,6 @@
 
 :root {
   --PrimaryColor: #{$primaryColor};
+  --DrakenPrimaryColor: #{darken($primaryColor, 8%)};
   --PrimaryTC: #{$primaryTC};
 }

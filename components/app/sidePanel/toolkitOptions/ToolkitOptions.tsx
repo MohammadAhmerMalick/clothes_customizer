@@ -13,7 +13,7 @@ import { ThemeColorsEnum, ToolkitOptionsListEnum } from '../../../../ts/enum'
 import { changeTheme } from '../../../../store/slices/app/UISlice'
 import { ToolkitOptionButtonInterface } from '../../../../ts/interface'
 import { setSelected } from '../../../../store/slices/app/sidePanelSlice'
-import IconButton from '../../../common/buttons/IconButton'
+import IconButton from '../../../common/buttons/iconButton/IconButton'
 
 const ToolkitOptions: FC = () => {
   const { themeColor } = useAppSelector((state) => state.UIReducer)

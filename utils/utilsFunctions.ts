@@ -14,9 +14,9 @@ const toasterOptions: ToastOptions = {
 
 export const toaster: ToasterInterface = {
   success: (message) => toast.success(message, toasterOptions),
-  error: (message) => toast.success(message, toasterOptions),
-  info: (message) => toast.success(message, toasterOptions),
-  warn: (message) => toast.success(message, toasterOptions),
+  error: (message) => toast.error(message, toasterOptions),
+  info: (message) => toast.info(message, toasterOptions),
+  warn: (message) => toast.warn(message, toasterOptions),
 }
 
 export const capitalize = (string: string) =>

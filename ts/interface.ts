@@ -117,6 +117,11 @@ export interface CustomImageInterface {
   placeholder?: string
 }
 
+export interface ButtonInterface {
+  label: string
+  onClick?(): void
+}
+
 /* *********
   Utils
  ********* */

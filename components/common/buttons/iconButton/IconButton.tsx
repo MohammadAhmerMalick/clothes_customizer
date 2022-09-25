@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 
 import S from './IconButton.module.scss'
-import { IconButtonInterface } from '../../../ts/interface'
+import { IconButtonInterface } from '../../../../ts/interface'
 
 const IconButton: FC<IconButtonInterface> = ({
   title,
