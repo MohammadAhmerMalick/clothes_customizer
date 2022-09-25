@@ -1,12 +1,20 @@
-import { FC } from 'react'
-import { useDropzone, FileWithPath } from 'react-dropzone'
+import { FC, useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
-import CustomImage from '../customImage/CustomImageInterface'
+
+import { DropzoneInterface } from '../../../ts/interface'
 
 import S from './Dropzone.module.scss'
 
-const Dropzone: FC = () => {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone()
+const Dropzone: FC<DropzoneInterface> = ({ selectFiles }) => {
+  const onDrop = useCallback(
+    (files: File[]) => {
+      selectFiles(files)
+    },
+    [selectFiles]
+  )
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
   return (
     <div className={S.dropzone}>
@@ -15,17 +23,6 @@ const Dropzone: FC = () => {
         <input {...getInputProps()} />
         <p>Upload product images</p>
       </div>
-      {acceptedFiles.map((file: FileWithPath) => (
-        <div key={file.path}>
-          {file.path} - {file.size} bytes
-          <CustomImage
-            src={URL.createObjectURL(file)}
-            alt="Product"
-            height={300}
-            width={300}
-          />
-        </div>
-      ))}
     </div>
   )
 }

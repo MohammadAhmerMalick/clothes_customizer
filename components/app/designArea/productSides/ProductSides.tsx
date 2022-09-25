@@ -31,10 +31,10 @@ const ProductSides: FC = () => {
 
   return (
     <div className={S.productSides}>
-      <ImageContainer link={selectedProduct.front.scaledLink} />
-      <ImageContainer link={selectedProduct.back.scaledLink} />
-      <ImageContainer link={selectedProduct.left.scaledLink} />
-      <ImageContainer link={selectedProduct.right.scaledLink} />
+      <ImageContainer link={selectedProduct.front?.scaledLink} />
+      <ImageContainer link={selectedProduct.back?.scaledLink} />
+      <ImageContainer link={selectedProduct.left?.scaledLink} />
+      <ImageContainer link={selectedProduct.right?.scaledLink} />
     </div>
   )
 }

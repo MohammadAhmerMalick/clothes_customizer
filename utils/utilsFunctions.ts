@@ -31,3 +31,5 @@ export const scaleCloudinaryImage = (
     link.split('image/upload/')[0]
   }image/upload/c_scale,w_${width}/${link.split('image/upload/')[1]}`,
 })
+
+export const uuid = () => `${Date.now()}-${Math.floor(Math.random() * 100)}`

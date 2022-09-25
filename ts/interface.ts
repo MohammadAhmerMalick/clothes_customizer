@@ -1,4 +1,5 @@
 import { FC, KeyboardEvent, ReactNode } from 'react'
+import { FileWithPath } from 'react-dropzone'
 import { IconType } from 'react-icons'
 
 import {
@@ -117,6 +118,10 @@ export interface CustomImageInterface {
   placeholder?: string
 }
 
+export interface DropzoneInterface {
+  selectFiles(acceptedFiles: File[]): void
+}
+
 export interface ButtonInterface {
   label: string
   onClick?(): void
@@ -131,4 +136,13 @@ export interface ToasterInterface {
   error: (message: string) => void
   info: (message: string) => void
   warn: (message: string) => void
+}
+
+/* *********
+  general
+ ********* */
+
+export interface FileWIthPathObject {
+  id: string
+  file: FileWithPath
 }
