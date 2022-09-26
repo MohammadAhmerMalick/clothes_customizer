@@ -16,6 +16,11 @@
     margin: auto;
 
     font-size: 26px;
+
+    color: inherit;
+    * {
+      color: inherit;
+    }
   }
 
   &:hover {
@@ -24,6 +29,8 @@
 
   &.active {
     background-color: var(--PrimaryColor);
+
+    color: var(--PrimaryTC);
 
     &:hover {
       background-color: var(--DrakenPrimaryColor);

@@ -31,7 +31,7 @@ const SelectProduct: FC = () => {
             <div key={product.id}>
               {product.front && (
                 <CustomImage
-                  src={IMAGE_PLACEHOLDER}
+                  src={product.front.scaledLink}
                   alt="Product"
                   width={SIDE_PANEL_IMAGE_MAX_WIDTH}
                   height={SIDE_PANEL_IMAGE_MAX_WIDTH}

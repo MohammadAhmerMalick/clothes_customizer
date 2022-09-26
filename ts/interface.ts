@@ -111,7 +111,7 @@ export interface ProductSideThumbnailInterface {
 }
 
 export interface CustomImageInterface {
-  src: string
+  src: string | undefined
   height: number
   width: number
   alt: string
@@ -145,4 +145,6 @@ export interface ToasterInterface {
 export interface FileWIthPathObject {
   id: string
   file: FileWithPath
+  previewURL: string
+  sideLabel?: string
 }

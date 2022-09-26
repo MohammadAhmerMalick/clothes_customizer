@@ -40,27 +40,5 @@
     &.loading {
       opacity: 0.5;
     }
-
-    .image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .imageBox {
-        position: relative;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        width: 100%;
-
-        cursor: pointer;
-
-        img {
-          max-width: 100%;
-        }
-      }
-    }
   }
 }

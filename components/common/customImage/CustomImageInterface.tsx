@@ -10,7 +10,8 @@ const CustomImage: FC<CustomImageInterface> = ({
   alt,
   placeholder,
 }) => {
-  const [imageSrc, setImageSrc] = useState(src)
+  const [imageSrc, setImageSrc] = useState(src || IMAGE_PLACEHOLDER)
+
   return (
     <Image
       src={imageSrc}

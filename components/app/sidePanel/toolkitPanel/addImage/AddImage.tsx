@@ -51,7 +51,6 @@ const AddImage: FC = () => {
           onKeyDown={handleKeyDown}
         />
         <IconButton
-          className={S.searchButton}
           Icon={loading ? LoadingCircle : RiSearch2Line}
           onClick={search}
           IconClassName={S.icon}
