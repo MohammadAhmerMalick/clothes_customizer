@@ -1,0 +1,50 @@
+@import '/styles/variables.scss';
+
+.select {
+  position: relative;
+
+  .options {
+    position: absolute;
+
+    min-width: 300px;
+    max-height: 0;
+
+    padding: 0 5px;
+
+    border: 1px solid transparent;
+
+    &.active {
+      max-height: 600px;
+
+      padding: 5px;
+      margin-top: 5px;
+
+      border-radius: $borderRadiusLight;
+      border: 1px solid var(--SecondaryBG);
+
+      opacity: 1;
+      overflow: visible;
+    }
+
+    background-color: var(--SecondaryBG);
+
+    overflow: hidden;
+    opacity: 0;
+
+    .option {
+      padding: 5px 10px;
+
+      border-radius: $borderRadiusLight;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--PrimaryBG);
+      }
+
+      &.selected {
+        background-color: var(--HoverPrimaryBG);
+      }
+    }
+  }
+}

@@ -13,6 +13,12 @@
   .sidesPreview {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70px;
     gap: 8px;
+  }
+
+  .actionsContainer {
+    display: flex;
+    justify-content: space-between;
   }
 }

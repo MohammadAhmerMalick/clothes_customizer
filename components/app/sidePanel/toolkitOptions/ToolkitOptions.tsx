@@ -2,10 +2,9 @@ import { FC } from 'react'
 import classNames from 'classnames'
 import { BsTextareaT } from 'react-icons/bs'
 import { AiOutlineCloudUpload, AiOutlinePicture } from 'react-icons/ai'
-import { IoColorPaletteOutline } from 'react-icons/io5'
+import { IoColorPaletteOutline, IoShirtOutline } from 'react-icons/io5'
 import { FiSettings, FiSun } from 'react-icons/fi'
 import { MdOutlineDarkMode } from 'react-icons/md'
-import { GiClothes } from 'react-icons/gi'
 
 import S from './ToolkitOptions.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../../store'
@@ -32,7 +31,7 @@ const ToolkitOptions: FC = () => {
     },
     {
       title: ToolkitOptionsListEnum.SELECT_PRODUCT,
-      Icon: GiClothes,
+      Icon: IoShirtOutline,
     },
     {
       title: ToolkitOptionsListEnum.COLOR,

@@ -3,17 +3,19 @@
 .dark {
   --PrimaryBG: #{$darkPrimaryBG};
   --SecondaryBG: #{$darkSecondaryBG};
+  --HoverPrimaryBG: #{$hoverDarkPrimaryBG};
   --TC: #{$darkTC};
 }
 
 .light {
   --PrimaryBG: #{$brightPrimaryBG};
   --SecondaryBG: #{$brightSecondaryBG};
+  --HoverPrimaryBG: #{darken($brightPrimaryBG, 10%)};
   --TC: #{$brightTC};
 }
 
 :root {
   --PrimaryColor: #{$primaryColor};
-  --DrakenPrimaryColor: #{darken($primaryColor, 8%)};
+  --HoverPrimaryColor: #{darken($primaryColor, 8%)};
   --PrimaryTC: #{$primaryTC};
 }

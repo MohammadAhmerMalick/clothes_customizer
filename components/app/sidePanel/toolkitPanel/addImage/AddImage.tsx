@@ -3,7 +3,7 @@ import { RiSearch2Line } from 'react-icons/ri'
 import { FC, KeyboardEvent, useState } from 'react'
 
 import S from './AddImage.module.scss'
-import Input from '../../../../common/inputs/Input'
+import Input from '../../../../common/form/inputs/Input'
 import IconButton from '../../../../common/buttons/iconButton/IconButton'
 import { useAppDispatch, useAppSelector } from '../../../../../store'
 import { getUnSplashImagesAction } from '../../../../../store/slices/app/searchesSlice'

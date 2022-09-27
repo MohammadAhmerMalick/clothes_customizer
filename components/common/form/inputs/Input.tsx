@@ -2,7 +2,7 @@ import { ChangeEvent, FC } from 'react'
 import classNames from 'classnames'
 
 import S from './Input.module.scss'
-import { InputInterface } from '../../../ts/interface'
+import { InputInterface } from '../../../../ts/interface'
 
 const Input: FC<InputInterface> = ({
   type,

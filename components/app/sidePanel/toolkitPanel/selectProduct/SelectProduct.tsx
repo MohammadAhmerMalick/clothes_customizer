@@ -5,10 +5,7 @@ import S from './SelectProduct.module.scss'
 import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
 import { useAppDispatch, useAppSelector } from '../../../../../store'
 import { getProductsAction } from '../../../../../store/slices/app/productSlice'
-import {
-  IMAGE_PLACEHOLDER,
-  SIDE_PANEL_IMAGE_MAX_WIDTH,
-} from '../../../../../utils/constants'
+import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../../../../utils/constants'
 import CustomImage from '../../../../common/customImage/CustomImageInterface'
 
 const SelectProduct: FC = () => {

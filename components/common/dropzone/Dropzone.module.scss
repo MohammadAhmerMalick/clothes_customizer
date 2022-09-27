@@ -13,6 +13,11 @@
 
     cursor: pointer;
 
+    &:hover {
+      border: 2px solid var(--SecondaryBG);
+      background-color: var(--SecondaryBG);
+    }
+
     .icon {
       path {
         color: var(--TC);

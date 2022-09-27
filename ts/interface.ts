@@ -123,8 +123,23 @@ export interface DropzoneInterface {
 }
 
 export interface ButtonInterface {
-  label: string
+  children: ReactNode
   onClick?(): void
+  className?: string
+  primary?: boolean
+}
+
+export interface SelectOptionInterface {
+  label: string
+  value: string
+  isSelected?: boolean
+}
+
+export interface SelectInterface {
+  label?: string
+  externalLabel: boolean
+  options: SelectOptionInterface[]
+  onChange(option: SelectOptionInterface[]): void
 }
 
 /* *********
@@ -143,7 +158,7 @@ export interface ToasterInterface {
  ********* */
 
 export interface FileWIthPathObject {
-  id: string
+  id: number | string
   file: FileWithPath
   previewURL: string
   sideLabel?: string

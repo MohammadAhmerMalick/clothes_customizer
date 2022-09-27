@@ -5,25 +5,25 @@ import Dropzone from '../../../../common/dropzone/Dropzone'
 import CustomImage from '../../../../common/customImage/CustomImageInterface'
 import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../../../../utils/constants'
 import { uuid } from '../../../../../utils/utilsFunctions'
-import { FileWIthPathObject } from '../../../../../ts/interface'
+import {
+  FileWIthPathObject,
+  SelectOptionInterface,
+} from '../../../../../ts/interface'
 import Button from '../../../../common/buttons/Button'
+import Select from '../../../../common/form/select/Select'
+
+const options = [
+  { label: 'Left', value: 'Left' },
+  { label: 'Right', value: 'Right' },
+  { label: 'Up', value: 'Up' },
+  { label: 'Down', value: 'Down' },
+]
 
 const UploadImage: FC = () => {
   const [fileList, setFileList] = useState<FileWIthPathObject[]>([])
 
   const handleRemoveImage = (fileObject: FileWIthPathObject) => {
     setFileList(fileList.filter((object) => object.id !== fileObject.id))
-  }
-
-  const handleSideLabelChange = (
-    fileObject: FileWIthPathObject,
-    value: string
-  ) => {
-    setFileList((state) =>
-      state.map((object) =>
-        object.id === fileObject.id ? { ...object, sideLabel: value } : object
-      )
-    )
   }
 
   const handleSelectFiles = (incommingFiles: File[]) => {
@@ -36,6 +36,24 @@ const UploadImage: FC = () => {
     setFileList((state) => (state.length ? [...state, ...files] : files))
   }
 
+  const handleSelectSide = (
+    fileObject: FileWIthPathObject,
+    option: SelectOptionInterface[]
+  ) => {
+    const sideLabel = option[0].value
+    setFileList((state) =>
+      state.map(
+        (object) =>
+          object.id === fileObject.id // on same id
+            ? { ...object, sideLabel } // update side
+            : object.sideLabel === sideLabel // same side
+            ? { ...object, sideLabel: '' } // remove old object side
+            : object // return as it is
+      )
+    )
+  }
+
+  console.log({ fileList })
   return (
     <div className={S.uploadImage}>
       <Dropzone selectFiles={handleSelectFiles} />
@@ -58,25 +76,23 @@ const UploadImage: FC = () => {
 
       {fileList.map((fileObject) => (
         <div key={fileObject.id}>
-          {fileObject.file.path} - {fileObject.file.size} bytes
           <CustomImage
             src={fileObject.previewURL}
             alt="Product"
             height={SIDE_PANEL_IMAGE_MAX_WIDTH}
             width={SIDE_PANEL_IMAGE_MAX_WIDTH}
           />
-          <Button
-            label="Remove image"
-            onClick={() => handleRemoveImage(fileObject)}
-          />
-          <select
-            onChange={(e) => handleSideLabelChange(fileObject, e.target.value)}
-          >
-            <option value="left">left</option>
-            <option value="right">right</option>
-            <option value="up">up</option>
-            <option value="down">down</option>
-          </select>
+          <div className={S.actionsContainer}>
+            <Button onClick={() => handleRemoveImage(fileObject)}>
+              Remove image
+            </Button>
+            <Select
+              label={fileObject.sideLabel}
+              externalLabel
+              onChange={(option) => handleSelectSide(fileObject, option)}
+              options={options}
+            />
+          </div>
         </div>
       ))}
     </div>

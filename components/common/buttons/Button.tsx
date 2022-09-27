@@ -1,9 +1,15 @@
 import { FC } from 'react'
+import classNames from 'classnames'
 
 import S from './Button.module.scss'
 import { ButtonInterface } from '../../../ts/interface'
 
-const Button: FC<ButtonInterface> = ({ label, onClick }) => {
+const Button: FC<ButtonInterface> = ({
+  children,
+  onClick,
+  className,
+  primary,
+}) => {
   const handleOnclick = () => {
     if (!onClick) return
 
@@ -11,11 +17,13 @@ const Button: FC<ButtonInterface> = ({ label, onClick }) => {
   }
 
   return (
-    <div className={S.buttonContainer}>
-      <button type="button" onClick={handleOnclick} className={S.button}>
-        {label}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={handleOnclick}
+      className={classNames(S.button, { [S.primary]: primary }, className)}
+    >
+      {children}
+    </button>
   )
 }
 
