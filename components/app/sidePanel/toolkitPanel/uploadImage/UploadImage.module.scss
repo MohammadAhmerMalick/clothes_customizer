@@ -12,9 +12,40 @@
 
   .sidesPreview {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 70px);
     grid-template-rows: 70px;
-    gap: 8px;
+    justify-content: space-between;
+
+    .sidesPreviewImageContainer {
+      position: relative;
+
+      border-radius: $borderRadiusLight;
+      overflow: hidden;
+
+      .overlay {
+        position: absolute;
+
+        display: grid;
+        place-items: center;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-color: rgba($color: black, $alpha: 0.8);
+
+        color: $brightSecondaryBG;
+
+        opacity: 0;
+      }
+
+      &:hover {
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .actionsContainer {

@@ -3,6 +3,8 @@
 .select {
   position: relative;
 
+  z-index: 1;
+
   .options {
     position: absolute;
 
@@ -20,7 +22,7 @@
       margin-top: 5px;
 
       border-radius: $borderRadiusLight;
-      border: 1px solid var(--SecondaryBG);
+      box-shadow: 0 0 10px -2px var(--PrimaryBG);
 
       opacity: 1;
       overflow: visible;

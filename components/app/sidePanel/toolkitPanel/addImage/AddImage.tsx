@@ -53,7 +53,7 @@ const AddImage: FC = () => {
         <IconButton
           Icon={loading ? LoadingCircle : RiSearch2Line}
           onClick={search}
-          IconClassName={S.icon}
+          isActive
         />
       </div>
       <ImageAlignmentoptions />

@@ -19,7 +19,7 @@ export const toaster: ToasterInterface = {
   warn: (message) => toast.warn(message, toasterOptions),
 }
 
-export const capitalize = (string: string) =>
+export const capitalize = (string: string | undefined) =>
   string ? string.charAt(0).toUpperCase() + string.slice(1) : ''
 
 export const scaleCloudinaryImage = (

@@ -22,7 +22,6 @@ const Select: FC<SelectInterface> = ({
   const handleButtonClick = () => {
     setIsOpened((state) => !state)
   }
-  console.log({ label })
 
   const handleSelect = (option: SelectOptionInterface) => {
     setInternalOptions((state) =>
@@ -59,7 +58,9 @@ const Select: FC<SelectInterface> = ({
             key={uuid()}
             onClick={() => handleSelect(option)}
             className={classNames(S.option, {
-              [S.selected]: option.isSelected,
+              [S.selected]: externalLabel
+                ? label === option.label
+                : option.isSelected,
             })}
           >
             {option.label}

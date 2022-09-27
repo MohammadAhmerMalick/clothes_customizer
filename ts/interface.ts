@@ -112,8 +112,8 @@ export interface ProductSideThumbnailInterface {
 
 export interface CustomImageInterface {
   src: string | undefined
-  height: number
-  width: number
+  height?: number
+  width?: number
   alt: string
   placeholder?: string
 }
@@ -162,4 +162,9 @@ export interface FileWIthPathObject {
   file: FileWithPath
   previewURL: string
   sideLabel?: string
+}
+
+export interface ImageNaturalDimensionInterface {
+  naturalHeight: number
+  naturalWidth: number
 }

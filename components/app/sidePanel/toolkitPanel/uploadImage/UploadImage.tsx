@@ -3,8 +3,7 @@ import { FC, useState } from 'react'
 import S from './UploadImage.module.scss'
 import Dropzone from '../../../../common/dropzone/Dropzone'
 import CustomImage from '../../../../common/customImage/CustomImageInterface'
-import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../../../../utils/constants'
-import { uuid } from '../../../../../utils/utilsFunctions'
+import { capitalize, uuid } from '../../../../../utils/utilsFunctions'
 import {
   FileWIthPathObject,
   SelectOptionInterface,
@@ -13,10 +12,10 @@ import Button from '../../../../common/buttons/Button'
 import Select from '../../../../common/form/select/Select'
 
 const options = [
-  { label: 'Left', value: 'Left' },
-  { label: 'Right', value: 'Right' },
-  { label: 'Up', value: 'Up' },
-  { label: 'Down', value: 'Down' },
+  { label: 'front', value: 'front' },
+  { label: 'back', value: 'back' },
+  { label: 'left', value: 'left' },
+  { label: 'right', value: 'right' },
 ]
 
 const UploadImage: FC = () => {
@@ -53,7 +52,6 @@ const UploadImage: FC = () => {
     )
   }
 
-  console.log({ fileList })
   return (
     <div className={S.uploadImage}>
       <Dropzone selectFiles={handleSelectFiles} />
@@ -62,26 +60,21 @@ const UploadImage: FC = () => {
         {fileList
           .filter((fileObject) => fileObject.sideLabel)
           .map((fileObject) => (
-            <div key={fileObject.id} className="productsSides">
-              <p>{fileObject.sideLabel}</p>
+            <div key={fileObject.id} className={S.sidesPreviewImageContainer}>
               <CustomImage
                 src={fileObject.previewURL}
-                alt={fileObject.sideLabel || 'Side'}
+                alt={fileObject.sideLabel || fileObject.file.name}
                 height={70}
                 width={70}
               />
+              <p className={S.overlay}>{capitalize(fileObject.sideLabel)}</p>
             </div>
           ))}
       </div>
 
       {fileList.map((fileObject) => (
         <div key={fileObject.id}>
-          <CustomImage
-            src={fileObject.previewURL}
-            alt="Product"
-            height={SIDE_PANEL_IMAGE_MAX_WIDTH}
-            width={SIDE_PANEL_IMAGE_MAX_WIDTH}
-          />
+          <CustomImage src={fileObject.previewURL} alt={fileObject.file.name} />
           <div className={S.actionsContainer}>
             <Button onClick={() => handleRemoveImage(fileObject)}>
               Remove image

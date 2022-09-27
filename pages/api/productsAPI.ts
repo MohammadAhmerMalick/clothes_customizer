@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { firestoreDB } from '../../config/firebaseConfig'
 import { ProductsInterface } from '../../ts/interface'
 import { scaleCloudinaryImage } from '../../utils/utilsFunctions'
+import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../utils/constants'
 
 // const uploadObDb = async () => {
 //   const docRef = await addDoc(collection(firestoreDB, 'products'), {
@@ -40,7 +41,7 @@ const getProducts = async () => {
       // scale the image
       const scaledImageLInk = scaleCloudinaryImage(
         item.data().t_shirts[key],
-        305
+        SIDE_PANEL_IMAGE_MAX_WIDTH
       )
 
       // testing by only front
