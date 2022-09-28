@@ -14,6 +14,7 @@ const Select: FC<SelectInterface> = ({
   externalLabel,
   options,
   onChange,
+  dropUp,
 }) => {
   const [isOpened, setIsOpened] = useState<boolean>(false)
   const [internalOptions, setInternalOptions] =
@@ -52,7 +53,13 @@ const Select: FC<SelectInterface> = ({
                 .map((option) => <span key={uuid()}>{option.label}</span>)}
         </Button>
       )}
-      <div className={classNames(S.options, { [S.active]: isOpened })}>
+      <div
+        className={classNames(
+          S.options,
+          { [S.dropUp]: dropUp },
+          { [S.active]: isOpened }
+        )}
+      >
         {internalOptions.map((option: SelectOptionInterface) => (
           <div
             key={uuid()}

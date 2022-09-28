@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { IoCloseOutline } from 'react-icons/io5'
 
 import S from './UploadImage.module.scss'
 import Dropzone from '../../../../common/dropzone/Dropzone'
@@ -8,7 +9,7 @@ import {
   FileWIthPathObject,
   SelectOptionInterface,
 } from '../../../../../ts/interface'
-import Button from '../../../../common/buttons/Button'
+import IconButton from '../../../../common/buttons/iconButton/IconButton'
 import Select from '../../../../common/form/select/Select'
 
 const options = [
@@ -72,22 +73,30 @@ const UploadImage: FC = () => {
           ))}
       </div>
 
-      {fileList.map((fileObject) => (
-        <div key={fileObject.id}>
-          <CustomImage src={fileObject.previewURL} alt={fileObject.file.name} />
-          <div className={S.actionsContainer}>
-            <Button onClick={() => handleRemoveImage(fileObject)}>
-              Remove image
-            </Button>
-            <Select
-              label={fileObject.sideLabel}
-              externalLabel
-              onChange={(option) => handleSelectSide(fileObject, option)}
-              options={options}
+      <div className={S.filesListContainer}>
+        {fileList.map((fileObject) => (
+          <div key={fileObject.id}>
+            <CustomImage
+              src={fileObject.previewURL}
+              alt={fileObject.file.name}
             />
+            <div className={S.actionsContainer}>
+              <Select
+                label={fileObject.sideLabel}
+                externalLabel
+                onChange={(option) => handleSelectSide(fileObject, option)}
+                options={options}
+                dropUp
+              />
+              <IconButton
+                Icon={IoCloseOutline}
+                title="Remove Image"
+                onClick={() => handleRemoveImage(fileObject)}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }

@@ -1,17 +1,22 @@
 @import '/styles/variables.scss';
 
 .button {
+  position: relative;
+
   height: 40px;
+  min-width: 40px;
 
   padding: 0 20px;
 
   border-radius: $borderRadiusLight;
   border: 0;
+  outline: 0;
 
   background-color: var(--SecondaryBG);
 
   color: var(--TC);
 
+  z-index: 1;
   cursor: pointer;
 
   &:hover {

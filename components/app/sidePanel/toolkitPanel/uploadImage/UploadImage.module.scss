@@ -48,6 +48,15 @@
     }
   }
 
+  .filesListContainer {
+    max-height: calc(100vh - 400px);
+
+    margin-right: $scrollOffset;
+    padding-right: calc($toolkitPanelgaps - $scrollOffset);
+
+    overflow: auto;
+  }
+
   .actionsContainer {
     display: flex;
     justify-content: space-between;

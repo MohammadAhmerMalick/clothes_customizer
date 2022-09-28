@@ -140,6 +140,7 @@ export interface SelectInterface {
   externalLabel: boolean
   options: SelectOptionInterface[]
   onChange(option: SelectOptionInterface[]): void
+  dropUp?: boolean
 }
 
 /* *********

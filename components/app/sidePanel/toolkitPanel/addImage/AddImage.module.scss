@@ -23,8 +23,6 @@
   }
 
   .imageContainer {
-    $scrollOffset: 5px;
-
     display: grid;
     gap: $toolkitPanelgaps;
     grid-template-columns: 1fr;
