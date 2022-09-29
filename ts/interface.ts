@@ -122,13 +122,17 @@ export interface CustomImageInterface {
 export interface DropzoneInterface {
   selectFiles(acceptedFiles: File[]): void
   className?: string
+  slim?: boolean
 }
 
 export interface ButtonInterface {
+  title?: string
   children: ReactNode
   onClick?(): void
   className?: string
   primary?: boolean
+  disabled?: boolean
+  bordered?: boolean
 }
 
 export interface SelectOptionInterface {
