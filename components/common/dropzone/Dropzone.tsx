@@ -7,7 +7,7 @@ import { DropzoneInterface } from '../../../ts/interface'
 
 import S from './Dropzone.module.scss'
 
-const Dropzone: FC<DropzoneInterface> = ({ selectFiles, className }) => {
+const Dropzone: FC<DropzoneInterface> = ({ selectFiles, className, slim }) => {
   const onDrop = useCallback(
     (files: File[]) => {
       selectFiles(files)
@@ -19,8 +19,12 @@ const Dropzone: FC<DropzoneInterface> = ({ selectFiles, className }) => {
 
   return (
     <div className={classNames(S.dropzone, className)}>
-      <div {...getRootProps({ className: S.dropzoneArea })}>
-        <AiOutlineCloudUpload size={80} className={S.icon} />
+      <div
+        {...getRootProps({
+          className: classNames(S.dropzoneArea, { [S.slim]: slim }),
+        })}
+      >
+        <AiOutlineCloudUpload size={slim ? 30 : 80} className={S.icon} />
         <input {...getInputProps()} />
         <p>Upload product images</p>
       </div>

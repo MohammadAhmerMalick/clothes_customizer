@@ -13,6 +13,17 @@
 
     cursor: pointer;
 
+    &.slim {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      height: 60px;
+
+      padding: 10px;
+    }
+
     &:hover {
       border: 2px solid var(--SecondaryBG);
       background-color: var(--SecondaryBG);
