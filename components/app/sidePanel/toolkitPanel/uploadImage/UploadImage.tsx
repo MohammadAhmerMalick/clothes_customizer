@@ -60,11 +60,13 @@ const UploadImage: FC = () => {
       )
     )
   }
-  console.log({ imageLayoutOption })
+
+  const isSideSelected = () =>
+    !!fileList.filter((fileObject) => fileObject.sideLabel).length
 
   return (
     <div className={S.uploadImage}>
-      <Dropzone selectFiles={handleSelectFiles} />
+      <Dropzone selectFiles={handleSelectFiles} slim />
 
       <div className={S.sidesPreview}>
         {fileList
@@ -82,9 +84,20 @@ const UploadImage: FC = () => {
           ))}
       </div>
 
-      <Button primary>Upload Product</Button>
-
-      <ImageAlignmentoptions />
+      <div className={S.controls}>
+        <Button
+          primary
+          disabled={!isSideSelected()}
+          title={
+            isSideSelected()
+              ? 'Upload Product'
+              : 'Assign a side to any selected image'
+          }
+        >
+          Upload Product
+        </Button>
+        <ImageAlignmentoptions />
+      </div>
 
       <div className={classNames(S.filesListContainer, S[imageLayoutOption])}>
         {fileList.map((fileObject) => (

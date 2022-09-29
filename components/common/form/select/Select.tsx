@@ -39,7 +39,9 @@ const Select: FC<SelectInterface> = ({
   return (
     <div className={S.select}>
       {label ? (
-        <Button onClick={handleButtonClick}>{label}</Button>
+        <Button onClick={handleButtonClick} bordered>
+          {label}
+        </Button>
       ) : externalLabel ? (
         <div>
           <Button onClick={handleButtonClick}>Select an option</Button>

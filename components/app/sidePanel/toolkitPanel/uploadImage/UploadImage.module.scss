@@ -57,12 +57,17 @@
     }
   }
 
+  .controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .filesListContainer {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
 
-    max-height: calc(100vh - 400px);
+    max-height: calc(100vh - 301px);
 
     margin-right: $scrollOffset;
     padding-right: calc($toolkitPanelgaps - $scrollOffset);
@@ -122,9 +127,4 @@
       }
     }
   }
-
-  // .actionsContainer {
-  //   display: flex;
-  //   justify-content: space-between;
-  // }
 }
