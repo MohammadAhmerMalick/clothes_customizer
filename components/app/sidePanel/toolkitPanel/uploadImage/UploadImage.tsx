@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { FC, useState } from 'react'
 import { IoCloseOutline } from 'react-icons/io5'
 
@@ -11,6 +12,9 @@ import {
 } from '../../../../../ts/interface'
 import IconButton from '../../../../common/buttons/iconButton/IconButton'
 import Select from '../../../../common/form/select/Select'
+import Button from '../../../../common/buttons/Button'
+import ImageAlignmentoptions from '../../../../common/ImageLayoutOptions/ImageLayoutOptions'
+import { useAppSelector } from '../../../../../store'
 
 const options = [
   { label: 'front', value: 'front' },
@@ -20,6 +24,10 @@ const options = [
 ]
 
 const UploadImage: FC = () => {
+  const { imageLayoutOption } = useAppSelector(
+    (state) => state.sidePanelReducer
+  )
+
   const [fileList, setFileList] = useState<FileWIthPathObject[]>([])
 
   const handleRemoveImage = (fileObject: FileWIthPathObject) => {
@@ -52,6 +60,7 @@ const UploadImage: FC = () => {
       )
     )
   }
+  console.log({ imageLayoutOption })
 
   return (
     <div className={S.uploadImage}>
@@ -73,27 +82,35 @@ const UploadImage: FC = () => {
           ))}
       </div>
 
-      <div className={S.filesListContainer}>
+      <Button primary>Upload Product</Button>
+
+      <ImageAlignmentoptions />
+
+      <div className={classNames(S.filesListContainer, S[imageLayoutOption])}>
         {fileList.map((fileObject) => (
           <div key={fileObject.id}>
-            <CustomImage
-              src={fileObject.previewURL}
-              alt={fileObject.file.name}
-            />
-            <div className={S.actionsContainer}>
-              <Select
-                label={fileObject.sideLabel}
-                externalLabel
-                onChange={(option) => handleSelectSide(fileObject, option)}
-                options={options}
-                dropUp
+            <div className={S.imageContainer}>
+              <CustomImage
+                src={fileObject.previewURL}
+                alt={fileObject.file.name}
               />
-              <IconButton
-                Icon={IoCloseOutline}
-                title="Remove Image"
-                onClick={() => handleRemoveImage(fileObject)}
-              />
+              <div className={S.overlay}>
+                <IconButton
+                  Icon={IoCloseOutline}
+                  title="Remove Image"
+                  onClick={() => handleRemoveImage(fileObject)}
+                  className={S.closeButton}
+                  danger={!!fileObject.sideLabel}
+                />
+              </div>
             </div>
+            <Select
+              label={fileObject.sideLabel || 'Select side'}
+              externalLabel
+              onChange={(option) => handleSelectSide(fileObject, option)}
+              options={options}
+              dropUp
+            />
           </div>
         ))}
       </div>

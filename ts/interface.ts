@@ -104,6 +104,7 @@ export interface IconButtonInterface {
   Icon: IconType | FC<LoadingCircleInterface>
   isActive?: boolean
   IconClassName?: string
+  danger?: boolean
 }
 
 export interface ProductSideThumbnailInterface {
@@ -120,6 +121,7 @@ export interface CustomImageInterface {
 
 export interface DropzoneInterface {
   selectFiles(acceptedFiles: File[]): void
+  className?: string
 }
 
 export interface ButtonInterface {

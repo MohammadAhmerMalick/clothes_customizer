@@ -12,12 +12,14 @@
 
   background-color: transparent;
 
+  font-size: 26px;
+
   .icon {
     display: flex;
 
     margin: auto;
 
-    font-size: 26px;
+    font-size: inherit;
 
     color: inherit;
     * {
@@ -27,6 +29,13 @@
 
   &:hover {
     background-color: var(--SecondaryBG);
+  }
+
+  &.danger {
+    &:hover {
+      background-color: var(--DangerBG);
+      color: var(--PrimaryTC);
+    }
   }
 
   &.active {

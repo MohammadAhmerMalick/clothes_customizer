@@ -18,4 +18,7 @@
   --PrimaryColor: #{$primaryColor};
   --HoverPrimaryColor: #{darken($primaryColor, 8%)};
   --PrimaryTC: #{$primaryTC};
+  --DangerBG: #{$dangerBG};
+
+  --DarkOverlay: #{rgba($color: black, $alpha: 0.8)};
 }
