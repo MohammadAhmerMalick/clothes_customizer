@@ -31,4 +31,24 @@
       background-color: var(--HoverPrimaryColor);
     }
   }
+
+  &.bordered {
+    background-color: transparent;
+    border: 2px solid var(--SecondaryFocusedBG);
+
+    &:hover {
+      background-color: var(--SecondaryBG);
+    }
+  }
+
+  &:disabled {
+    background-color: var(--SecondaryBG);
+    color: var(--SecondaryFocusedBG);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--SecondaryBG);
+      color: var(--SecondaryFocusedBG);
+    }
+  }
 }

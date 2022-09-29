@@ -3,6 +3,7 @@
 .dark {
   --PrimaryBG: #{$darkPrimaryBG};
   --SecondaryBG: #{$darkSecondaryBG};
+  --SecondaryFocusedBG: #{$darkSecondaryFocusedBG};
   --HoverPrimaryBG: #{$hoverDarkPrimaryBG};
   --TC: #{$darkTC};
 }
@@ -10,6 +11,7 @@
 .light {
   --PrimaryBG: #{$brightPrimaryBG};
   --SecondaryBG: #{$brightSecondaryBG};
+  --SecondaryFocusedBG: #{$brightkSecondaryFocusedBG};
   --HoverPrimaryBG: #{darken($brightPrimaryBG, 10%)};
   --TC: #{$brightTC};
 }
