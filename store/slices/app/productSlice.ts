@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { callGetProducts } from '../../../network/apiCalls'
 import { ProductsSidesEnum } from '../../../ts/enum'
@@ -20,12 +20,13 @@ const productInitialState = {
 
 export const initialState: ProductSliceInterface = {
   loading: true,
+  fetched: false,
   data: {
     allProducts: [],
     selectedProduct: productInitialState,
     selectedSide: ProductsSidesEnum.FRONT,
   },
-  error: {},
+  error: { message: '' },
 }
 
 export const getProductsAction = createAsyncThunk(
@@ -41,8 +42,8 @@ export const getProductsAction = createAsyncThunk(
 
       return []
     } catch (error: any) {
-      toaster.error(error.data.message)
-      return rejectWithValue(error.data)
+      toaster.error(error.response.data.message)
+      return rejectWithValue(error.response.data || 'something went Wrong')
     }
   }
 )
@@ -50,26 +51,36 @@ export const getProductsAction = createAsyncThunk(
 const productSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    chengeProductsFetchedFlag: (
+      state: ProductSliceInterface,
+      { payload }: PayloadAction<ProductSliceInterface['fetched']>
+    ) => ({
+      ...state,
+      fetched: payload,
+    }),
+  },
   extraReducers(builder) {
     builder
       .addCase(getProductsAction.pending, (state) => ({
         ...state,
         loading: true,
+        fetched: true,
       }))
       .addCase(getProductsAction.fulfilled, (state, { payload }) => ({
         ...state,
         loading: false,
         data: { ...state.data, allProducts: payload },
-        error: {},
+        error: { ...state.error },
       }))
       .addCase(getProductsAction.rejected, (state, { payload }) => ({
         ...state,
         loading: false,
         data: { ...state.data },
-        error: payload as object,
+        error: payload as ProductSliceInterface['error'],
       }))
   },
 })
 
+export const { chengeProductsFetchedFlag } = productSlice.actions
 export const productReducer = productSlice.reducer

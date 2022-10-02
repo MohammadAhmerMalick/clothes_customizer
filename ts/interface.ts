@@ -62,12 +62,13 @@ export interface ProductsInterface {
 
 export interface ProductSliceInterface {
   loading: boolean
+  fetched: boolean
   data: {
     allProducts: ProductsInterface[]
     selectedProduct: ProductsInterface
     selectedSide: ProductsSidesEnum
   }
-  error: object
+  error: { message: string }
 }
 
 // toolkitOption

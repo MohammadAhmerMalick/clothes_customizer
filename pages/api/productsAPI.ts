@@ -59,8 +59,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.json({ data })
   } catch (error) {
     console.log({ getProductsError: error })
-    return res.json({
-      data: { message: 'Unable to get products at this moment', data: [] },
+    return res.status(404).json({
+      message: 'Unable to get products at this moment',
     })
   }
 }
