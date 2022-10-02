@@ -1,5 +1,14 @@
 .loadingCircle {
-  path {
-    fill: var(--TC);
+  * {
+  }
+
+  .halfCircle {
+    fill: none;
+    stroke: var(--TC);
+    stroke-width: 15;
+    stroke-miterlimit: 0;
+    scale: 0.5;
+
+    transform-origin: center;
   }
 }

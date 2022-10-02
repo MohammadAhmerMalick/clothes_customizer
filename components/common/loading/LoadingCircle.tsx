@@ -8,24 +8,17 @@ import S from './LoadingCircle.module.scss'
 export const LoadingCircle: FC<LoadingCircleInterface> = ({ className }) => {
   return (
     <div className={classNames(S.loadingCircle, className)}>
-      <svg
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        viewBox="0 0 100 100"
-      >
+      <svg viewBox="0 0 181.24 181.26">
         <path
-          fill="#fff"
-          d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"
+          className={S.halfCircle}
+          d="M7.56,90.63c0-45.87,37.19-83.06,83.06-83.06s83.06,37.19,83.06,83.06"
         >
           <animateTransform
             attributeName="transform"
-            attributeType="XML"
             type="rotate"
             dur="1s"
-            from="0 50 50"
-            to="360 50 50"
+            from="0"
+            to="360"
             repeatCount="indefinite"
           />
         </path>
