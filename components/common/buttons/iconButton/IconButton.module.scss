@@ -1,0 +1,50 @@
+@import '/styles/variables.scss';
+
+.iconContainer {
+  cursor: pointer;
+
+  min-height: 40px;
+  min-width: 40px;
+
+  border: 0;
+  outline: 0;
+  border-radius: $borderRadiusLight;
+
+  background-color: transparent;
+
+  font-size: 26px;
+
+  .icon {
+    display: flex;
+
+    margin: auto;
+
+    font-size: inherit;
+
+    color: inherit;
+    * {
+      color: inherit;
+    }
+  }
+
+  &:hover {
+    background-color: var(--SecondaryBG);
+  }
+
+  &.danger {
+    &:hover {
+      background-color: var(--DangerBG);
+      color: var(--PrimaryTC);
+    }
+  }
+
+  &.active {
+    background-color: var(--PrimaryColor);
+
+    color: var(--PrimaryTC);
+
+    &:hover {
+      background-color: var(--HoverPrimaryColor);
+    }
+  }
+}

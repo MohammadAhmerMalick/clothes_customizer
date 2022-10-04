@@ -1,0 +1,18 @@
+@import '/styles/variables.scss';
+
+.imageAlignmentoptions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  .button {
+    $size: 40px;
+
+    width: $size;
+    height: $size;
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.designArea {
+  display: grid;
+  grid-template-columns: auto 100px;
+
+  height: 100%;
+
+  padding: 20px;
+
+  background-color: var(--SecondaryBG);
+
+  overflow: auto;
+}

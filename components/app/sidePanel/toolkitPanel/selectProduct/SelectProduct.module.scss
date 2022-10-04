@@ -1,0 +1,58 @@
+@import '/styles/variables.scss';
+
+.selectProduct {
+  & > * {
+    margin-top: $toolkitPanelgaps;
+
+    padding: {
+      left: $toolkitPanelgaps;
+      right: $toolkitPanelgaps;
+    }
+  }
+
+  .tools {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .products {
+    $scrollOffset: 5px;
+
+    display: grid;
+    gap: $toolkitPanelgaps;
+    grid-template-columns: 1fr;
+
+    max-height: calc(100vh - 137px);
+
+    margin: {
+      right: $scrollOffset;
+    }
+
+    padding: {
+      right: calc($toolkitPanelgaps - $scrollOffset);
+    }
+
+    overflow: auto;
+
+    &.single {
+      grid-template-columns: 1fr;
+    }
+
+    &.double {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &.loading {
+      opacity: 0.5;
+    }
+
+    .imageContainer {
+      display: flex;
+
+      .image {
+        cursor: pointer;
+      }
+    }
+  }
+}

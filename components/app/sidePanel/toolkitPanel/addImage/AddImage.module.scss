@@ -1,0 +1,76 @@
+@import '/styles/variables.scss';
+
+.addImage {
+  & > * {
+    margin-top: $toolkitPanelgaps;
+
+    padding: {
+      left: $toolkitPanelgaps;
+      right: $toolkitPanelgaps;
+    }
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: auto 40px;
+    grid-template-rows: 40px;
+    gap: 8px;
+
+    .input {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .imageContainer {
+    display: grid;
+    gap: $toolkitPanelgaps;
+    grid-template-columns: 1fr;
+
+    max-height: calc(100vh - 189px);
+
+    margin: {
+      right: $scrollOffset;
+    }
+
+    padding: {
+      right: calc($toolkitPanelgaps - $scrollOffset);
+    }
+
+    overflow: auto;
+
+    &.single {
+      grid-template-columns: 1fr;
+    }
+
+    &.double {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &.loading {
+      opacity: 0.5;
+    }
+
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .imageBox {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        cursor: pointer;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

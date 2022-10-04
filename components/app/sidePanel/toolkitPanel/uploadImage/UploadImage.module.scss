@@ -1,0 +1,130 @@
+@import '/styles/variables.scss';
+
+.uploadImage {
+  & > * {
+    margin-top: $toolkitPanelgaps;
+
+    padding: {
+      left: $toolkitPanelgaps;
+      right: $toolkitPanelgaps;
+    }
+  }
+
+  .sidesPreview {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: 70px;
+    justify-content: space-between;
+
+    border: 2px dashed var(--SecondaryBG);
+    border-radius: $borderRadiusLight;
+
+    padding: 0;
+    margin: {
+      left: $toolkitPanelgaps;
+      right: $toolkitPanelgaps;
+    }
+
+    .sidesPreviewImageContainer {
+      position: relative;
+
+      border-radius: $borderRadiusLight;
+      overflow: hidden;
+
+      .overlay {
+        position: absolute;
+
+        display: grid;
+        place-items: center;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-color: var(--DarkOverlay);
+
+        color: $brightSecondaryBG;
+
+        opacity: 0;
+      }
+
+      &:hover {
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .filesListContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    max-height: calc(100vh - 301px);
+
+    margin-right: $scrollOffset;
+    padding-right: calc($toolkitPanelgaps - $scrollOffset);
+
+    overflow: auto;
+
+    &.single {
+      grid-template-columns: 1fr;
+    }
+
+    &.double {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .imageContainer {
+      position: relative;
+      display: flex;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-color: var(--DarkOverlay);
+
+        padding: 5px;
+
+        opacity: 0;
+        text-align: right;
+
+        .closeButton {
+          $size: 25px;
+
+          min-height: $size;
+          min-width: $size;
+
+          margin-left: auto;
+
+          border-radius: 100%;
+
+          font-size: 18px;
+
+          color: var(--PrimaryTC);
+
+          &:hover {
+            color: var(--TC);
+          }
+        }
+      }
+
+      &:hover {
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

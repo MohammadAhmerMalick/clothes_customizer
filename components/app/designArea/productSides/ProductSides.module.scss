@@ -1,0 +1,21 @@
+.productSides {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  .imageContainer {
+    $color: var(--PrimaryColor);
+
+    $size: 90px;
+
+    width: $size;
+    height: $size;
+
+    padding: 10px;
+
+    .image {
+      cursor: pointer;
+    }
+  }
+}

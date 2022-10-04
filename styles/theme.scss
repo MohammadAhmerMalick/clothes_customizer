@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+.dark {
+  --PrimaryBG: #{$darkPrimaryBG};
+  --SecondaryBG: #{$darkSecondaryBG};
+  --SecondaryFocusedBG: #{$darkSecondaryFocusedBG};
+  --HoverPrimaryBG: #{$hoverDarkPrimaryBG};
+  --TC: #{$darkTC};
+}
+
+.light {
+  --PrimaryBG: #{$brightPrimaryBG};
+  --SecondaryBG: #{$brightSecondaryBG};
+  --SecondaryFocusedBG: #{$brightkSecondaryFocusedBG};
+  --HoverPrimaryBG: #{darken($brightPrimaryBG, 10%)};
+  --TC: #{$brightTC};
+}
+
+:root {
+  --PrimaryColor: #{$primaryColor};
+  --HoverPrimaryColor: #{darken($primaryColor, 8%)};
+  --PrimaryTC: #{$primaryTC};
+  --DangerBG: #{$dangerBG};
+
+  --DarkOverlay: #{rgba($color: black, $alpha: 0.8)};
+}
