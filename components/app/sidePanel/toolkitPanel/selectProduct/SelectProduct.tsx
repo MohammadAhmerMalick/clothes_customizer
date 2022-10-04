@@ -8,11 +8,13 @@ import { useAppDispatch, useAppSelector } from '../../../../../store'
 import {
   chengeProductsFetchedFlag,
   getProductsAction,
+  selectProductAction,
 } from '../../../../../store/slices/app/productSlice'
 import { SIDE_PANEL_IMAGE_MAX_WIDTH } from '../../../../../utils/constants'
 import CustomImage from '../../../../common/customImage/CustomImageInterface'
 import LoadingCircle from '../../../../common/loading/LoadingCircle'
 import IconButton from '../../../../common/buttons/iconButton/IconButton'
+import { ProductsInterface } from '../../../../../ts/interface'
 
 const SelectProduct: FC = () => {
   const dispatch = useAppDispatch()
@@ -32,6 +34,10 @@ const SelectProduct: FC = () => {
       dispatch(getProductsAction())
     }
   }, [fetched, data.allProducts, dispatch])
+
+  const handleSelectProduct = (product: ProductsInterface) => {
+    dispatch(selectProductAction(product))
+  }
 
   return (
     <div className={S.selectProduct}>
@@ -57,6 +63,8 @@ const SelectProduct: FC = () => {
                     alt="Product"
                     width={SIDE_PANEL_IMAGE_MAX_WIDTH}
                     height={SIDE_PANEL_IMAGE_MAX_WIDTH}
+                    className={S.image}
+                    onClick={() => handleSelectProduct(product)}
                   />
                 )}
               </div>

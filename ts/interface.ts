@@ -1,4 +1,4 @@
-import { FC, KeyboardEvent, ReactNode } from 'react'
+import { FC, KeyboardEvent, MouseEvent, ReactNode } from 'react'
 import { FileWithPath } from 'react-dropzone'
 import { IconType } from 'react-icons'
 
@@ -118,6 +118,8 @@ export interface CustomImageInterface {
   width?: number
   alt: string
   placeholder?: string
+  className?: string
+  onClick?(): MouseEvent<HTMLImageElement, MouseEvent> | void
 }
 
 export interface DropzoneInterface {
