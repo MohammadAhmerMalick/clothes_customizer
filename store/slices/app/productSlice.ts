@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { callGetProducts } from '../../../network/apiCalls'
 import { ProductsSidesEnum } from '../../../ts/enum'
-import { ProductSliceInterface } from '../../../ts/interface'
+import { ProductsInterface, ProductSliceInterface } from '../../../ts/interface'
 import { toaster } from '../../../utils/utilsFunctions'
 
 const links = {
@@ -51,6 +51,7 @@ export const getProductsAction = createAsyncThunk(
 const productSlice = createSlice({
   name: 'products',
   initialState,
+
   reducers: {
     chengeProductsFetchedFlag: (
       state: ProductSliceInterface,
@@ -59,7 +60,19 @@ const productSlice = createSlice({
       ...state,
       fetched: payload,
     }),
+    selectProductAction: (
+      state: ProductSliceInterface,
+      { payload }: PayloadAction<ProductsInterface>
+    ) => ({
+      ...state,
+      data: { ...state.data, selectedProduct: payload },
+    }),
+    selectProductSideAction: (
+      state: ProductSliceInterface,
+      { payload }: PayloadAction<ProductsSidesEnum>
+    ) => ({ ...state, data: { ...state.data, selectedSide: payload } }),
   },
+
   extraReducers(builder) {
     builder
       .addCase(getProductsAction.pending, (state) => ({
@@ -82,5 +95,9 @@ const productSlice = createSlice({
   },
 })
 
-export const { chengeProductsFetchedFlag } = productSlice.actions
+export const {
+  chengeProductsFetchedFlag,
+  selectProductAction,
+  selectProductSideAction,
+} = productSlice.actions
 export const productReducer = productSlice.reducer

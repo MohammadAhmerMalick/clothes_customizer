@@ -50,7 +50,9 @@
     .imageContainer {
       display: flex;
 
-      cursor: pointer;
+      .image {
+        cursor: pointer;
+      }
     }
   }
 }
