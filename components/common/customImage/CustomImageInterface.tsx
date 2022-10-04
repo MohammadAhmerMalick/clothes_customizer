@@ -12,8 +12,6 @@ const CustomImage: FC<CustomImageInterface> = ({
   width,
   alt,
   placeholder,
-  className,
-  onClick,
 }) => {
   const [imageSrc, setImageSrc] = useState(src || IMAGE_PLACEHOLDER)
   const [dimension, setDimension] = useState<ImageNaturalDimensionInterface>({
@@ -36,10 +34,8 @@ const CustomImage: FC<CustomImageInterface> = ({
       height={height || dimension.naturalHeight}
       width={width || dimension.naturalWidth}
       alt={alt}
-      className={className}
       onError={() => setImageSrc(placeholder || IMAGE_PLACEHOLDER)}
       onLoadingComplete={handleSetDimension}
-      onClick={onClick}
     />
   )
 }
